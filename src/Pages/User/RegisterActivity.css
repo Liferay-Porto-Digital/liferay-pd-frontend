@@ -1,0 +1,51 @@
+
+.register-activity-container {
+    position: relative;
+    color:#0b63ce;;
+    top: 0;
+    bottom: 0;
+}
+
+
+.sidebar-right-register-activity {
+    height: 100vh !important;
+}
+
+.button-new-activity-container {
+    width: 100%;
+    margin: 36px 0;
+    text-align: center;
+}
+
+.button-new-register-activity {
+    border-radius: 36px !important;
+}
+
+.signal-state-reg-activity-and {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: #ffa500;
+}
+.signal-state-reg-activity-con {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: #0b63ce;
+}
+
+.card-body-activity {
+    padding: 8px !important;
+}
+
+.title-card-activity {
+    font-size: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.text-card-activity {
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}

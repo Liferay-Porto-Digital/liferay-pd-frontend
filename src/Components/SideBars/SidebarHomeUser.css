@@ -1,0 +1,63 @@
+.sidebar-container {
+    margin-top: 16px;
+    color: #0b63ce;
+}
+
+.user-avatar-sidebar {
+    width: 96px;
+    height: 96px;
+}
+
+.username-sidebar {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-job-sidebar {
+    font-size: 12px;
+}
+
+#title-evp-sidebar {
+    margin: 24px 0;
+}
+
+progress::before,
+progress::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+}
+
+progress::before {
+    width: 100%;
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+progress::after {
+    width: 75%;
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+progress {
+    -webkit-appearance: none;
+    border-radius: 16px;
+}
+
+::-webkit-progress-bar {
+    background-color: #0b63ce4f;
+    border-radius: 16px;
+}
+
+::-webkit-progress-value {
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+::-moz-progress-bar {
+    background-color: #0b63ce;
+    border-radius: 16px;
+}

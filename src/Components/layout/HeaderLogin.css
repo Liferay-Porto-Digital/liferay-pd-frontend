@@ -1,0 +1,18 @@
+.header-user-container-login {
+    top: 0;
+    width: 100%;
+    position: absolute;
+}
+
+nav.bg-light {
+    background-color: #0b63ce !important;
+}
+
+li.nav-item, a.nav-link {
+    color: #ffffff !important;
+}
+
+#icon-liferay-header-use {
+    width: 96px;
+    height: 24px;
+}

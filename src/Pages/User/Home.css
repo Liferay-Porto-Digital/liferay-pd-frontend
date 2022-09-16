@@ -1,0 +1,131 @@
+@media screen and (max-width:560px) {
+    .sidebar-right-home {
+        height: 80vh !important;
+    }
+}
+@media screen and (min-width:560px) {
+    .sidebar-right-home {
+        height: 100vh !important;
+    }
+}
+div.col-md-10{
+    padding-left: 3vw;
+}
+
+.home-user-container {
+    position: relative;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+
+}
+.overflow-scroll {
+    height: 100vh;
+    overflow-y: scroll;
+    padding-top: 12vh;
+    
+}
+
+.sidebar-right-home {
+    position: relative;
+}
+
+.home-sidebar-container {
+    color:#0b63ce;
+    margin: 16px auto;
+
+}
+
+.home-sidebar {
+    margin-top: 16px;
+}
+
+.user-avatar-side-home {
+    width: 96px;
+    height: 96px;
+}
+
+.username-sidebar-home {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-job-sidebar-home {
+    font-size: 12px;
+}
+
+#title-evp-year {
+    margin: 24px 0;
+}
+
+progress::before,
+progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+}
+
+progress::before {
+  width: 100%;
+  background-color: #0b63ce;
+  border-radius: 16px;
+}
+
+progress::after {
+  width: 75%;
+  background-color: #0b63ce;
+  border-radius: 16px;
+}
+
+progress {
+    -webkit-appearance: none;
+    border-radius: 16px;
+}
+
+::-webkit-progress-bar {
+    background-color: #0b63ce4f;
+    border-radius: 16px;
+}
+
+::-webkit-progress-value {
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+::-moz-progress-bar {
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+.card-body-home {
+    padding: 8px !important;
+    
+}
+
+.avatar-card-home {
+    width: 42px;
+    height: 42px;
+}
+
+.title-card-home {
+    font-size: 16px !important;
+    color:#0b63ce; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.title-card-info{
+    font-size: 16px !important;
+    color:#0b63ce; 
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+}
+
+.text-card-home {
+    font-size: 12px !important;
+    color:#0b63ce;
+    margin: 0 !important;
+    padding: 0 !important;
+}

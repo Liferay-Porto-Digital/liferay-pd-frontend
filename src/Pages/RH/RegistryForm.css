@@ -1,0 +1,69 @@
+
+
+.home-sidebar-container {
+    text-align: center;
+    color:#0b63ce;
+
+}
+
+.user-avatar-side-home {
+    width: 96px;
+    height: 96px;
+}
+
+.username-sidebar-home {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.user-job-sidebar-home {
+    font-size: 12px;
+}
+
+#title-evp-year {
+    margin: 24px 0;
+}
+
+progress::before,
+progress::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: auto;
+}
+
+progress::before {
+  width: 100%;
+  background-color: #0b63ce;
+  border-radius: 16px;
+}
+
+progress::after {
+  width: 75%;
+  background-color: #0b63ce;
+  border-radius: 16px;
+}
+
+progress {
+    -webkit-appearance: none;
+    border-radius: 16px;
+}
+
+::-webkit-progress-bar {
+    background-color: #0b63ce4f;
+    border-radius: 16px;
+}
+
+::-webkit-progress-value {
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+::-moz-progress-bar {
+    background-color: #0b63ce;
+    border-radius: 16px;
+}
+
+
+

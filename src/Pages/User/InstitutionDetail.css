@@ -1,0 +1,41 @@
+.institute-detail-container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+
+.institute-detail-card-sidebar-right {
+    position: relative;
+    height: 100vh !important;
+}
+
+.institute-detail-card-sidebar-container {
+    text-align: center;
+    color:#0b63ce;
+
+}
+
+.card-institute-detail-border {
+    border: none !important;
+}
+
+.avatar-card-institute-detail {
+    width: 42px;
+    height: 42px;
+}
+
+.title-card-institute-detail {
+    color:#0b63ce; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.text-card-institute-detail {
+    color:#0b63ce;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.text-size-institute-detail {
+    font-size: 12px;
+}

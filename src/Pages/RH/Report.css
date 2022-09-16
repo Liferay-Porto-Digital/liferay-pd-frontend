@@ -1,0 +1,21 @@
+
+.row.report-row{
+    min-width: 100%;
+    margin-bottom: 15%;
+ 
+}
+.col-md-6.container-report{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    
+}
+.col-md.data{
+    text-align: center;
+    color: #0b63ce;
+}
+#btn-report{
+    border-radius: 36px;
+    margin-left: 10px;
+}

@@ -1,0 +1,35 @@
+@media screen and (max-width:560px) {
+    .col-sm-5{
+        align-items: center;
+        padding-bottom: 20px;
+    }
+    
+}
+@media screen and (min-width:560px) {
+    .col-sm-5{
+        align-items: flex-end;
+        padding-bottom: 50px;
+    }
+    
+}
+.col-sm-5{
+    display: flex;
+    flex-direction: column;
+}
+#titleRegistry{
+    color: #0b63ce;
+    font-size: 17px; 
+}
+#title-typeSolicitation{
+    text-align: center;
+    color: #0b63ce;  
+}
+.registryData-text{
+    margin-top: 5%;
+    font-size: 13px;
+    color: #0b63ce;
+    display: flex ;
+    flex-direction: row;
+}
+
+

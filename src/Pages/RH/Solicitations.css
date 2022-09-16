@@ -1,0 +1,35 @@
+@media screen and (max-width:1030px) {
+    #select-order-solicitation {
+        margin: 15px 0;
+    }
+    #btn-solicitation-donate {
+       margin: 15px 0;
+    }
+    #btn-solicitation-activite {
+      margin:15px 0;
+    }
+    #btn-solicitation-all {
+        margin: 15px 0;
+    }
+}
+
+#select-order-solicitation {
+    width: 160px;
+    margin-left:10px;
+    margin-right:10px;
+    border-radius: 36px;
+    display: inline;
+}
+
+#btn-solicitation-donate {
+    border-radius: 36px;
+    margin-left: 10px;
+}
+#btn-solicitation-activite {
+    border-radius: 36px;
+    margin-left: 10px;
+}
+#btn-solicitation-all {
+    border-radius: 36px;
+    margin-left: 10px;
+}

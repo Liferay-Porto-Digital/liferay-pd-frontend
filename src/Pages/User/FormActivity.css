@@ -1,0 +1,10 @@
+@media screen and (max-width:570px) {
+    tr{
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+.table, thead, tbody, th, tr, td {
+    border: none !important;
+}

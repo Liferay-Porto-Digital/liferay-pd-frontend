@@ -1,0 +1,9 @@
+.popup-menu-form-container {
+    position: absolute;
+    display: none;
+}
+
+.list-group-item, .menu-popup-link-form {
+    text-decoration: none;
+    color: #0b63ce;
+}

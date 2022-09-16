@@ -1,0 +1,49 @@
+@media screen and (max-width:540px) {
+    .info-global-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 200px;
+    }
+}
+@media screen and (min-width:540px) {
+    .info-global-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+
+.title-global-style {
+    color: #0b63ce;
+    display: block;
+    margin:16px;
+}
+
+.info-global-container {
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 0 50px 50px 0;
+    background-color: #0b63ce;
+    margin: 16px 0;
+}
+.title-global-style-year{
+    position: relative;
+    font-size: 12px ;
+}
+
+.info-global-style {
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.title-info-global {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-global {
+    font-size: 14px;
+    font-weight: bold;
+}

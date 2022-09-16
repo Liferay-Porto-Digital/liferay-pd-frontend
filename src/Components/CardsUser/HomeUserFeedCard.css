@@ -1,0 +1,43 @@
+.card-body-home-institution {
+    align-items: center !important;
+    justify-content: flex-start !important;
+    display: inline;
+    padding: 0 !important;
+}
+
+.card-body-home {
+    padding: 0 !important;
+    text-align: center !important;
+    
+}
+
+.avatar-card-home-user {
+    width: 42px;
+    height: 42px;
+}
+
+.title-card-home-institution {
+    font-size: 16px !important;
+    margin: 0 0 0 8px !important;
+    padding: 0;
+}
+
+.text-card-home-institution {
+    font-size: 12px !important;
+    margin: 0 0 0 8px !important;
+    padding: 0;
+}
+
+.title-card-home-user {
+    font-size: 16px !important;
+    margin: 0 !important;
+    padding: 0;
+    
+}
+
+.text-card-home-user {
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 0;
+    
+}

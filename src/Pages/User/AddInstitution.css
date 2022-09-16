@@ -1,0 +1,17 @@
+.table, thead, tbody, th, tr, td {
+    border: none !important;
+}
+
+#desc-inst{
+    width: 30vw;
+    height: 10vw;
+}
+#btn-add-inst{
+   position: relative;
+   float: right;
+   margin-right: 4%;
+   bottom: 3vw;
+   border-radius: 36px;
+   margin-left: 10px;
+}
+

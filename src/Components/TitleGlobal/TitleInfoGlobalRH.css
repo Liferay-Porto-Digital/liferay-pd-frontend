@@ -1,0 +1,30 @@
+
+.titleRH-global-style{
+    color: #0b63ce;
+    padding: 10px;
+    border-radius: 0 50px 50px 0;
+    margin: 16px 0;
+    display: block;
+    max-width: 100%;
+    background-color:rgba(11,99,206,0.17);
+}
+
+.title-global-style-year{
+    position: relative;
+    font-size: 12px ;
+}
+
+.info-global-style {
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+.title-info-global {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.info-global {
+    font-size: 14px;
+    font-weight: bold;
+}

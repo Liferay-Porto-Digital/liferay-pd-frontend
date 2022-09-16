@@ -1,0 +1,16 @@
+
+.footer, .footer-container {
+    position:relative;
+    left: 0;
+    margin:0 !important;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    text-align: center;
+    color: #ffffff;
+    background-color: #0b63ce;
+}
+
+#footer-text-info {
+    font-size: 12px;
+}

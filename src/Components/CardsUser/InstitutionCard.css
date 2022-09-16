@@ -1,0 +1,18 @@
+.card-body-institute {
+    align-items:center !important;
+    justify-content: flex-start !important;
+    display: inline !important;
+    padding: 0 !important;
+}
+
+.title-card-institute {
+    font-size: 16px !important;
+    margin: 0 0 0 8px !important;
+    padding: 0 !important;
+}
+
+.text-card-institute {
+    font-size: 12px !important;
+    margin: 0 0 0 8px !important;
+    padding: 0 !important;
+}

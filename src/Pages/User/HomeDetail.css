@@ -1,0 +1,62 @@
+.home-detail-container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+
+}
+
+.home-detail-card-sidebar-right {
+    position: relative;
+    height: 80vh !important;
+}
+
+.home-detail-card-sidebar-container {
+    text-align: center;
+    color:#0b63ce;
+
+}
+
+.card-home-detail-border {
+    border: none !important;
+}
+
+.avatar-card-home-detail {
+    width: 42px;
+    height: 42px;
+}
+
+.title-card-home-detail {
+    color:#0b63ce; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.text-card-home-detail {
+    color:#0b63ce;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+.date-size-home-detail {
+    font-size: 12px;
+}
+
+.table, thead, tbody, th, tr, td {
+    border: none !important;
+}
+
+.form-control {
+    margin-right: 20px;
+}
+
+.form-check-label {
+    margin-right: 20px;
+}
+
+.info-fields {
+    color:#0b63ce;
+}
+.btn.btn-primary.home-detail{
+    margin-bottom: 3%;
+}

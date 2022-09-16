@@ -1,0 +1,37 @@
+.card-body-register-activity {
+    align-items:center !important;
+    justify-content: flex-start !important;
+    display: inline !important;
+    padding: 0 !important;
+}
+
+.title-card-register-institution {
+    font-size: 16px !important;
+    margin: 0 0 0 8px !important;
+    padding: 0 !important;
+}
+
+.text-card-register-institution {
+    font-size: 12px !important;
+    margin: 0 0 0 8px !important;
+    padding: 0 !important;
+}
+
+.title-card-register-activity {
+    font-size: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.text-card-register-activity {
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.signal-state-register-activity {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: #ffa500;
+}
