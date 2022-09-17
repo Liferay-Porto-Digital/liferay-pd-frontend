@@ -26,3 +26,16 @@ li.nav-item, a.nav-link {
     width: 96px;
     height: 24px;
 }
+
+a.nav-link-form {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #0d6efd;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    color: #ffffff;
+}
+
+a.nav-link.active {
+    text-decoration:  underline;
+   }
