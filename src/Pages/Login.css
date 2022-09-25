@@ -26,12 +26,14 @@
 }
 
 .buttom-submit-custom {
+    border: none !important;
     width: 100% !important;
+    background-color: #00bfa5 !important;
 }
+
 @media screen and (max-width:500px) {
     .login-page-card {
         width: 70vw;
         margin-bottom: 30%;
     }
-    
 }

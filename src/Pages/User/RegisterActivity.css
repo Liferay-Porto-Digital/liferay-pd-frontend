@@ -18,7 +18,9 @@
 }
 
 .button-new-register-activity {
+    border: none;
     border-radius: 36px !important;
+    background-color: #00bfa5;
 }
 
 .signal-state-reg-activity-and {
@@ -27,6 +29,7 @@
     border-radius: 100%;
     background-color: #ffa500;
 }
+
 .signal-state-reg-activity-con {
     width: 24px;
     height: 24px;

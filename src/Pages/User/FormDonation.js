@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./FormDonation.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
@@ -279,7 +280,7 @@ function FormDonation() {
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" className="btn btn-primary">Confirmar</button>
+                                            <button type="submit" className="btn btn-primary btn-confirmar-form-donation">Confirmar</button>
                                         </td>
                                     </tr>
                                     <tr>

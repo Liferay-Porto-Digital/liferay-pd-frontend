@@ -19,7 +19,6 @@ function Report() {
                             <TitleInfoGlobalRH titleevpmain={"RELATÓRIO DO EVP 2022"}/>
                         <div className="feed-home-container">
                                 <ReportCard/>
-             
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-home">
