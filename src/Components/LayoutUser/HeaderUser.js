@@ -24,8 +24,10 @@ function HeaderUser() {
             popupMenuFormContainer.style.display = "block";
         }
     }
+    
 
     return (
+        
         <div className="header-user-container">
             <header className="header-user">
                 <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,7 +51,7 @@ function HeaderUser() {
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="" onClick={handlePopupForm}>Formulários</NavLink>
-                                    <PopupMenuForm />
+                                    <PopupMenuForm/>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/admin">Administrador</NavLink>
