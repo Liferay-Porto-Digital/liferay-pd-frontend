@@ -13,3 +13,7 @@
     border: none;
     background-color: #00bfa5;
 }
+
+.btn-confirmar-form-donation:hover {
+    background-color: #017b6b !important;
+}

@@ -11,7 +11,6 @@ import Footer from "./../../Components/layout/Footer";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import ButtonForm from "../../Components/ButtonForm";
 
-
 function FormActivity() {
     const mdate = new Date(); 
     const [organizationName, setOrganizationName] = useState("")

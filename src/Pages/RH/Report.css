@@ -22,3 +22,7 @@
     margin-left: 10px;
     background-color: #00bfa5;
 }
+
+#btn-report:hover {
+    background-color: #017b6b !important;
+}

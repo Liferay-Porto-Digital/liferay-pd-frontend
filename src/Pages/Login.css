@@ -31,6 +31,12 @@
     background-color: #00bfa5 !important;
 }
 
+.buttom-submit-custom:hover {
+    border: none !important;
+    width: 100% !important;
+    background-color: #017b6b !important;
+}
+
 @media screen and (max-width:500px) {
     .login-page-card {
         width: 70vw;

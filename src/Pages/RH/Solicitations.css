@@ -52,6 +52,10 @@ select#select-order-solicitation {
     background-color: #00bfa5;
 }
 
+#btn-solicitation-donate:hover {
+    background-color: #017b6b !important;
+}
+
 #btn-solicitation-activite {
     border: none;
     border-radius: 36px;
@@ -59,9 +63,17 @@ select#select-order-solicitation {
     background-color: #00bfa5;
 }
 
+#btn-solicitation-activite:hover {
+    background-color: #017b6b !important;
+}
+
 #btn-solicitation-all {
     border: none;
     border-radius: 36px;
     margin-left: 10px;
     background-color: #00bfa5;
+}
+
+#btn-solicitation-all:hover {
+    background-color: #017b6b !important;
 }

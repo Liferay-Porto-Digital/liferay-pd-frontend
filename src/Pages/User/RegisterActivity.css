@@ -23,6 +23,10 @@
     background-color: #00bfa5;
 }
 
+.button-new-register-activity:hover {
+    background-color: #017b6b !important;
+}
+
 .signal-state-reg-activity-and {
     width: 24px;
     height: 24px;
