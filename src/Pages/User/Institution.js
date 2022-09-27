@@ -79,8 +79,7 @@ function Institution() {
                             />
                         )}
                         <div className="button-new-activity-container">
-                            <NavLink className="btn btn-primary btn-add-institution"
-                            to="/addInstitution">Adicionar Instituição</NavLink>
+                            <NavLink className="btn btn-primary btn-add-institution" to="/addInstitution">Adicionar Instituição</NavLink>
                         </div>
                     </div>
                 </div>
