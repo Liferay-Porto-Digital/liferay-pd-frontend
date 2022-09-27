@@ -87,14 +87,11 @@
     border-radius: 36px;
     margin-left: 10px;
 }
-<<<<<<< HEAD
 
 #btn-filter-institution:hover {
     background-color: #017b6b !important;
 }
 
-=======
->>>>>>> a4e47b63d50b275f341aff96382a629664337db5
 .btn-add-institution {
     border: none;
     border-radius: 36px !important;
