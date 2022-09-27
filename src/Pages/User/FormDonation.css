@@ -8,3 +8,12 @@
 .table, thead, tbody, th, tr, td {
     border: none !important;
 }
+
+.btn-confirmar-form-donation {
+    border: none;
+    background-color: #00bfa5;
+}
+
+.btn-confirmar-form-donation:hover {
+    background-color: #017b6b !important;
+}

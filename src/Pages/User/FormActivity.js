@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./FormActivity.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
@@ -9,7 +10,6 @@ import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import ButtonForm from "../../Components/ButtonForm";
-
 
 function FormActivity() {
     const mdate = new Date(); 
@@ -280,7 +280,7 @@ function FormActivity() {
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" className="btn btn-primary" onClick={()=>ButtonForm()}>Confirmar</button>
+                                            <button type="submit" className="btn btn-primary btn-confirmar-form-activity" onClick={()=>ButtonForm()}>Confirmar</button>
                                         </td>
                                     </tr>
                                     <tr>
