@@ -120,13 +120,13 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Nome"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nome_contato}/>
+                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nome_contato}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="url" className="form-control" placeholder="Sobrenome"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.sobrenome}/>
+                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.sobrenome}/>
                                             </div>
                                         </td>
                                         <td>
