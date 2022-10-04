@@ -11,7 +11,7 @@ function Login() {
         <div className="login-page-container">
             <Navbar/>
             <div className="login-page-card">
-                <h2 id="title-card-login">Login</h2>
+                <h4 id="title-card-login">Login</h4>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         {/* <Form.Label>Email address</Form.Label> */}
