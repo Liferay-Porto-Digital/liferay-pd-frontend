@@ -132,7 +132,7 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Número de Identificação Fiscal"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.id}/>
+                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.id}/>
                                             </div>
                                         </td>
 
@@ -159,7 +159,7 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Cep"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
+                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
                                             </div>
                                         </td>
                                         <td>
