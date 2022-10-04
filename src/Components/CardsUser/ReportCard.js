@@ -85,8 +85,6 @@ function ReportCard() {
                             <h5 classeName="data">{TableActivity()}</h5>
                         </div>
                     </div>
-                
-                    
                 </div>
             </div>
         </div>

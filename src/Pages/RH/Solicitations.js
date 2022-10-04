@@ -9,8 +9,6 @@ import sidebarInfo from "../../Infos/sidebarRH-info";
 import SidebarHomeRH from "../../Components/SideBars/HomeRHSideBar";
 import Footer from "../../Components/layout/Footer";
 
-
-
 function Solicitations() {
     //função trocar os options do select
 
@@ -53,14 +51,14 @@ function Solicitations() {
                             <TitleInfoGlobalRH titleevpmain={"SOLICITAÇÕES"}/>
                             <div className="filter-institution-container">
                             <input type="search" id="search-institution" placeholder="Search" name="search"/>
-                            <span>ordenar</span>
+                            <span id="text-info-custom">ordenar</span>
                             <select className="form-select" id="select-order-solicitation" name="selectFilterInstitution">
                                 <option value="1" selected >Mais recentes</option>
                                 <option value="2">Mais antigas</option>
                                 <option value="3">Colaborador</option>
                                 <option value="3">Instituição</option>
                             </select>
-                            <span>filtro</span>
+                            <span id="text-info-custom">filtro</span>
                             <button className="btn btn-primary" id="btn-solicitation-donate" onClick={()=>{Btn_donate()}}>Doações</button>
                             <button className="btn btn-primary" id="btn-solicitation-activite" onClick={()=>{Btn_activite()}}>Atividades</button>
                             <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Remover filtros</button>

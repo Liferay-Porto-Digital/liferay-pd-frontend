@@ -6,12 +6,19 @@
     width: 30vw;
     height: 10vw;
 }
+
 #btn-add-inst{
    position: relative;
    float: right;
    margin-right: 4%;
+   border: none;
    bottom: 3vw;
    border-radius: 36px;
    margin-left: 10px;
+   background-color: #00bfa5;
+}
+
+#btn-add-inst:hover {
+    background-color: #017b6b !important;
 }
 

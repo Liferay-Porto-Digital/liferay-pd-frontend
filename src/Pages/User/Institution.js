@@ -10,7 +10,6 @@ import InstitutionCard from "../../Components/CardsUser/InstitutionCard";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "../../Components/layout/Footer";
-import {Link} from "react-router-dom";
 
 function Institution() {
     const mdate = new Date();
@@ -79,9 +78,9 @@ function Institution() {
                                 activityMax={info.activityMax}
                             />
                         )}
-                    <div className="button-new-activity-container">
-                            <NavLink className="btn btn-primary button-new-register-activity" to="/addInstitution">Adicionar Instituição</NavLink>
-                    </div>
+                        <div className="button-new-activity-container">
+                            <NavLink className="btn btn-primary btn-add-institution" to="/addInstitution">Adicionar Instituição</NavLink>
+                        </div>
                     </div>
                 </div>
             </div>

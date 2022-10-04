@@ -1,12 +1,13 @@
 
 .titleRH-global-style{
-    color: #0b63ce;
+    color: #ffffff;
     padding: 10px;
     border-radius: 0 50px 50px 0;
     margin: 16px 0;
     display: block;
     max-width: 100%;
-    background-color:rgba(11,99,206,0.17);
+    background-color: #0b63ce;
+    /* background-color:rgba(11,99,206,0.17); */
 }
 
 .title-global-style-year{
