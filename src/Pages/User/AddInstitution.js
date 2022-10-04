@@ -49,7 +49,7 @@ function AddInstitution() {
                                     <tr>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <input type="text" className="form-control" placeholder="Instituição"  aria-label="Organization" aria-describedby="basic-addon1"/>
+                                                <input type="text" className="form-control" placeholder="Nome da Organização"  aria-label="Organization" aria-describedby="basic-addon1"/>
                                             </div>
                                         </td>
                                         <td>
@@ -59,12 +59,12 @@ function AddInstitution() {
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <input type="url" className="form-control"  placeholder ="url"aria-label="Url" aria-describedby="basic-addon1"/>
+                                                <input type="url" className="form-control"  placeholder ="Url"aria-label="Url" aria-describedby="basic-addon1"/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <input type="text" className="form-control" placeholder="Cidade"   aria-label="City" aria-describedby="basic-addon1"/>
+                                                <input type="text" className="form-control" placeholder="Telefone"  aria-label="Phone" aria-describedby="basic-addon1"/>
                                             </div>
                                         </td>
                                     </tr>
@@ -85,6 +85,20 @@ function AddInstitution() {
                                             </div>
                                         </td>
                                         <td>
+                                            <div className="input-group mb-3">
+                                                <input type="text" className="form-control" placeholder="Cidade"   aria-label="City" aria-describedby="basic-addon1"/>
+                                            </div>
+                                        </td>
+                                       
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>
+                                            <div className="input-group mb-3">
+                                                <input type="text" className="form-control" placeholder="Email"  aria-label="Email" aria-describedby="basic-addon1"/>
+                                            </div>
+                                        </td>
+                                        <td>
                                             <select className="form-select" aria-label="Default select example">
                                                 <option value="valor1" selected>Brasil</option>
                                                 <option value="valor2">Canadá</option>
@@ -97,10 +111,9 @@ function AddInstitution() {
                                                 <option value="valor9">Suiça</option>
                                             </select>
                                         </td>
-                                    </tr>
-                                    
+                                     </tr>
                                     <tr>
-                                        <td>
+                                    <td>
                                             <div className="input-group mb-3">
                                                 <textarea id="desc-inst"className="form-control" placeholder="Descrição da organização"  aria-label="Organization Description"></textarea>
                                             </div>
