@@ -44,9 +44,8 @@ function Institution() {
                             <select className="form-select" id="select-order-institution" name="selectFilterInstitution">
                                 <option value="1" selected >Menos solicitações</option>
                                 <option value="2">Mais solicitações</option>
+                                <option value="2">Minhas Instituições</option>
                             </select>
-                            <span>filtro</span>
-                            <button className="btn btn-primary" id="btn-filter-institution">Minhas Instituições</button>
                         </div>
                         <div className="institution-card-container">
                             {institutionInfo.map((info) =>
