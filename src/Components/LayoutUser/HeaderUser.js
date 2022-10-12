@@ -1,12 +1,17 @@
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import "./HeaderUser.css";
 import logo from "./../../images/ic_liferay_white.png";
 import PopupMenuForm from "../PopupMenuUser/PopupMenuForm";
 import ModalMenu from "../ModalMenu"
+import classNames from "classnames";
 
 function HeaderUser() {
     const [isShowing, setShowing] = useState(false);
+    const location = useLocation();
+    console.log(location);
+    const classnav = classNames("nav-link", { active: location.pathname === "/formdonation" || location.pathname === "/formactivity"});
+    
     
     function handlePopupForm() {
         const popupMenuFormContainer = document.getElementsByClassName("popup-menu-form-container")[0];
@@ -24,6 +29,7 @@ function HeaderUser() {
             popupMenuFormContainer.style.display = "block";
         }
     }
+
     
 
     return (
@@ -50,7 +56,7 @@ function HeaderUser() {
                                     <NavLink className="nav-link" to="/institution">Instituições</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="" onClick={handlePopupForm}>Formulários</NavLink>
+                                    <a className={classnav} href = "#" to="" onClick={handlePopupForm}>Formulários</a>
                                     <PopupMenuForm/>
                                 </li>
                                 <li className="nav-item">
@@ -58,7 +64,7 @@ function HeaderUser() {
                                 </li>
                             </ul>
                         </div>
-                        <NavLink className="nav-link" to="/">Sair</NavLink>
+                        <a className="nav-link" href="/">Sair</a>
                     </div>
                 </nav>
             </header>

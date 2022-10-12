@@ -15,7 +15,7 @@ function HeaderRH() {
                             <img id="icon-liferay-header-use" src={logo} alt="icon"/>
                         </NavLink>
                         <div id="responsive-menu">
-                            <ModalMenuRH />
+                            <ModalMenuRH/>
                         </div>
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
@@ -30,7 +30,7 @@ function HeaderRH() {
                                 </li>
                             </ul>
                         </div>
-                        <NavLink className="nav-link" to="/">Sair</NavLink>
+                        <a className="nav-link" to="/">Sair</a>
                     </div>
                 </nav>
             </header>
