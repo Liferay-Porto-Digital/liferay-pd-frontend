@@ -28,6 +28,9 @@ function HeaderRH() {
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/report">Relatórios</NavLink>
                                 </li>
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to="/home">Colaborador</NavLink>
+                                </li>
                             </ul>
                         </div>
                         <NavLink className="nav-link" to="/">Sair</NavLink>
