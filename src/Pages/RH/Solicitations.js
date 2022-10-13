@@ -57,11 +57,11 @@ function Solicitations() {
                                 <option value="2">Mais antigas</option>
                                 <option value="3">Colaborador</option>
                                 <option value="3">Instituição</option>
+                                <option value="3">Doações</option>
+                                <option value="3">Atividades</option>
+                                <option value="3">Doações</option>
                             </select>
-                            <span id="text-info-custom">filtro</span>
-                            <button className="btn btn-primary" id="btn-solicitation-donate" onClick={()=>{Btn_donate()}}>Doações</button>
-                            <button className="btn btn-primary" id="btn-solicitation-activite" onClick={()=>{Btn_activite()}}>Atividades</button>
-                            <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Remover filtros</button>
+                            <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Filtrar</button>
                         </div>
                         <div className="feed-home-container">
                             {homeRHFeedInfo.map((info) =>
