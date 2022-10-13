@@ -61,6 +61,7 @@ function Solicitations() {
                                 <option value="3">Atividades</option>
                                 <option value="3">Doações</option>
                             </select>
+                            <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Filtrar</button>
                         </div>
                         <div className="feed-home-container">
                             {homeRHFeedInfo.map((info) =>
