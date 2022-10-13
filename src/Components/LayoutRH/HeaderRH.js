@@ -33,7 +33,7 @@ function HeaderRH() {
                                 </li>
                             </ul>
                         </div>
-                        <a className="nav-link" to="/">Sair</a>
+                        <a className="nav-link" href="/">Sair</a>
                     </div>
                 </nav>
             </header>
