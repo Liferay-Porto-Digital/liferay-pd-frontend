@@ -42,10 +42,11 @@ function Institution() {
                             <input type="search" id="search-institution" placeholder="Search" name="search"/>
                             <span>ordenar</span>
                             <select className="form-select" id="select-order-institution" name="selectFilterInstitution">
-                                <option value="1" selected >Menos solicitações</option>
+                                <option value="1" selected >Minhas Instituições</option>
                                 <option value="2">Mais solicitações</option>
-                                <option value="2">Minhas Instituições</option>
+                                <option value="2">Menos solicitações</option>
                             </select>
+                            <button className="btn btn-primary" id="btn-filter-institution">Filtrar</button>
                         </div>
                         <div className="institution-card-container">
                             {institutionInfo.map((info) =>
