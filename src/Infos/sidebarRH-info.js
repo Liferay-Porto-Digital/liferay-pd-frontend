@@ -9,7 +9,7 @@ const sidebarRHInfo = [
         titleDonate: "DOAÇÕES GLOBAIS",
         donateMax: "R$ 3500.00",
         donateValue: 1000,
-        titleActivity: "ATIVIDADES Global",
+        titleActivity: "ATIVIDADES GLOBAIS",
         activityMax: "450 Hrs",
         activityValue: 202,
     }
