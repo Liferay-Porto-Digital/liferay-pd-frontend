@@ -34,7 +34,6 @@ function RegisterActivityDetail() {
                                     city={registerActivityInfo[context].city}
                                     activityText={registerActivityInfo[context].activityText}
                                     activityValue={registerActivityInfo[context].activityValue}
-                                    activityTitle={registerActivityInfo[context].activityTitle}
                                     activityDate={registerActivityInfo[context].activityDate}
                                 />
                             }
