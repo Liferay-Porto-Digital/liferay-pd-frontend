@@ -42,7 +42,7 @@ function Institution() {
                             <input type="search" id="search-institution" placeholder="Search" name="search"/>
                             <span>ordenar</span>
                             <select className="form-select" id="select-order-institution" name="selectFilterInstitution">
-                                <option value="1" selected >Minhas Instituições</option>
+                                <option value="1" selected >Todas Instituições</option>
                                 <option value="2">Mais solicitações</option>
                                 <option value="2">Menos solicitações</option>
                             </select>
