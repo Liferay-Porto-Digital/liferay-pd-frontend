@@ -18,21 +18,9 @@
 }
 
 .button-new-register-activity {
-    border: none;
     border-radius: 36px !important;
-    background-color: #00bfa5;
 }
 
-.button-new-register-activity:hover {
-    background-color: #017b6b !important;
-}
-
-.signal-state-reg-activity-and {
-    width: 24px;
-    height: 24px;
-    border-radius: 100%;
-    background-color: #ffa500;
-}
 
 .signal-state-reg-activity-con {
     width: 24px;
