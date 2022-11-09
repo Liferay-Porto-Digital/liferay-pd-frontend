@@ -2,7 +2,8 @@ import React from "react";
 
 import "./HomeRH.css";
 import HeaderRH from "../../Components/LayoutRH/HeaderRH";
-import TitleInfoGlobalRH from "../../Components/TitleGlobal/TitleInfoGlobalRH";
+import titleGlobalInfo from "../../Infos/title-info-global";
+import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import homeRHFeedInfo from "../../Infos/home-RH-feed-info";
 import HomeRHFeedCard from "../../Components/CardsUser/HomeRHFeedCard";
 import sidebarInfo from "../../Infos/sidebarRH-info";
@@ -17,7 +18,23 @@ function HomeRH() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-10 center-container-home order-1 order-md-0">
-                            <TitleInfoGlobalRH titleevpmain={"DOAÇÕES E ATIVIDADES VOLUNTÁRIAS"}/>
+                        <div className="title-global-info-container">
+                                {titleGlobalInfo.map((info) =>
+                                    <TitleInfoGlobal
+                                        titleevpmain={"DOAÇÕES E ATIVIDADES VOLUNTÁRIAS"}
+                                        titledonateglobal={info.titledonateglobal}
+                                        titledonatevalor={info.titledonatevalor}
+                                        donatevalue={info.donatevalue}
+                                        titledonatemeta={info.titledonatemeta}
+                                        donatemeta={info.donatemeta}
+                                        titleactivityglobal={info.titleactivityglobal}
+                                        titleactivityvalor={info.titleactivityvalor}
+                                        activityvalue={info.activityvalue}
+                                        titleactivitymeta={info.titleactivitymeta}
+                                        activitymeta={info.activitymeta}
+                                    />
+                                )}
+                            </div>
                         <div className="feed-home-container">
                             {homeRHFeedInfo.map((info) =>
                                 <HomeRHFeedCard

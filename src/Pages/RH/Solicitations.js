@@ -2,7 +2,8 @@ import React from "react";
 
 import "./Solicitations.css";
 import HeaderRH from "../../Components/LayoutRH/HeaderRH";
-import TitleInfoGlobalRH from "../../Components/TitleGlobal/TitleInfoGlobalRH";
+import titleGlobalInfo from "../../Infos/title-info-global";
+import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import homeRHFeedInfo from "../../Infos/home-RH-feed-info";
 import HomeRHFeedCard from "../../Components/CardsUser/HomeRHFeedCard";
 import sidebarInfo from "../../Infos/sidebarRH-info";
@@ -48,7 +49,23 @@ function Solicitations() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-10 center-container-home">
-                            <TitleInfoGlobalRH titleevpmain={"SOLICITAÇÕES"}/>
+                    <div className="title-global-info-container">
+                                {titleGlobalInfo.map((info) =>
+                                    <TitleInfoGlobal
+                                        titleevpmain={"SOLICITAÇÕES"}
+                                        titledonateglobal={info.titledonateglobal}
+                                        titledonatevalor={info.titledonatevalor}
+                                        donatevalue={info.donatevalue}
+                                        titledonatemeta={info.titledonatemeta}
+                                        donatemeta={info.donatemeta}
+                                        titleactivityglobal={info.titleactivityglobal}
+                                        titleactivityvalor={info.titleactivityvalor}
+                                        activityvalue={info.activityvalue}
+                                        titleactivitymeta={info.titleactivitymeta}
+                                        activitymeta={info.activitymeta}
+                                    />
+                                )}
+                            </div>
                             <div className="filter-institution-container">
                             <input type="search" id="search-institution" placeholder="Search" name="search"/>
                             <span id="text-info-custom">ordenar</span>
