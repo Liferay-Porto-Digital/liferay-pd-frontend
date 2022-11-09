@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./FormActivity.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
@@ -9,7 +10,6 @@ import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import ButtonForm from "../../Components/ButtonForm";
-
 
 function FormActivity() {
     const mdate = new Date(); 
@@ -132,7 +132,7 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Número de Identificação Fiscal"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.id}/>
+                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.id}/>
                                             </div>
                                         </td>
 
@@ -159,7 +159,7 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Cep"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
+                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
                                             </div>
                                         </td>
                                         <td>
@@ -280,7 +280,7 @@ function FormActivity() {
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" className="btn btn-primary" onClick={()=>ButtonForm()}>Confirmar</button>
+                                            <button type="submit" className="btn btn-primary btn-confirmar-form-activity" onClick={()=>ButtonForm()}>Confirmar</button>
                                         </td>
                                     </tr>
                                     <tr>

@@ -2,14 +2,13 @@ import React from "react";
 
 import "./Solicitations.css";
 import HeaderRH from "../../Components/LayoutRH/HeaderRH";
-import TitleInfoGlobalRH from "../../Components/TitleGlobal/TitleInfoGlobalRH";
+import titleGlobalInfo from "../../Infos/title-info-global";
+import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import homeRHFeedInfo from "../../Infos/home-RH-feed-info";
 import HomeRHFeedCard from "../../Components/CardsUser/HomeRHFeedCard";
 import sidebarInfo from "../../Infos/sidebarRH-info";
 import SidebarHomeRH from "../../Components/SideBars/HomeRHSideBar";
 import Footer from "../../Components/layout/Footer";
-
-
 
 function Solicitations() {
     //função trocar os options do select
@@ -50,20 +49,36 @@ function Solicitations() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-10 center-container-home">
-                            <TitleInfoGlobalRH titleevpmain={"SOLICITAÇÕES"}/>
+                    <div className="title-global-info-container">
+                                {titleGlobalInfo.map((info) =>
+                                    <TitleInfoGlobal
+                                        titleevpmain={"SOLICITAÇÕES"}
+                                        titledonateglobal={info.titledonateglobal}
+                                        titledonatevalor={info.titledonatevalor}
+                                        donatevalue={info.donatevalue}
+                                        titledonatemeta={info.titledonatemeta}
+                                        donatemeta={info.donatemeta}
+                                        titleactivityglobal={info.titleactivityglobal}
+                                        titleactivityvalor={info.titleactivityvalor}
+                                        activityvalue={info.activityvalue}
+                                        titleactivitymeta={info.titleactivitymeta}
+                                        activitymeta={info.activitymeta}
+                                    />
+                                )}
+                            </div>
                             <div className="filter-institution-container">
                             <input type="search" id="search-institution" placeholder="Search" name="search"/>
-                            <span>ordenar</span>
+                            <span id="text-info-custom">ordenar</span>
                             <select className="form-select" id="select-order-solicitation" name="selectFilterInstitution">
                                 <option value="1" selected >Mais recentes</option>
                                 <option value="2">Mais antigas</option>
                                 <option value="3">Colaborador</option>
                                 <option value="3">Instituição</option>
+                                <option value="3">Doações</option>
+                                <option value="3">Atividades</option>
+                                <option value="3">Doações</option>
                             </select>
-                            <span>filtro</span>
-                            <button className="btn btn-primary" id="btn-solicitation-donate" onClick={()=>{Btn_donate()}}>Doações</button>
-                            <button className="btn btn-primary" id="btn-solicitation-activite" onClick={()=>{Btn_activite()}}>Atividades</button>
-                            <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Remover filtros</button>
+                            <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Filtrar</button>
                         </div>
                         <div className="feed-home-container">
                             {homeRHFeedInfo.map((info) =>

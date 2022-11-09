@@ -10,7 +10,6 @@ import InstitutionCard from "../../Components/CardsUser/InstitutionCard";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "../../Components/layout/Footer";
-import {Link} from "react-router-dom";
 
 function Institution() {
     const mdate = new Date();
@@ -43,11 +42,11 @@ function Institution() {
                             <input type="search" id="search-institution" placeholder="Search" name="search"/>
                             <span>ordenar</span>
                             <select className="form-select" id="select-order-institution" name="selectFilterInstitution">
-                                <option value="1" selected >Menos solicitações</option>
+                                <option value="1" selected >Todas Instituições</option>
                                 <option value="2">Mais solicitações</option>
+                                <option value="2">Menos solicitações</option>
                             </select>
-                            <span>filtro</span>
-                            <button className="btn btn-primary" id="btn-filter-institution">Minhas Instituições</button>
+                            <button className="btn btn-primary" id="btn-filter-institution">Filtrar</button>
                         </div>
                         <div className="institution-card-container">
                             {institutionInfo.map((info) =>
@@ -79,9 +78,9 @@ function Institution() {
                                 activityMax={info.activityMax}
                             />
                         )}
-                    <div className="button-new-activity-container">
-                            <NavLink className="btn btn-primary button-new-register-activity" to="/addInstitution">Adicionar Instituição</NavLink>
-                    </div>
+                        <div className="button-new-activity-container">
+                            <NavLink className="btn btn-primary btn-add-institution" to="/addInstitution">Adicionar Instituição</NavLink>
+                        </div>
                     </div>
                 </div>
             </div>

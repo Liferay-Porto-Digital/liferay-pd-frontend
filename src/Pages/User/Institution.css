@@ -4,6 +4,7 @@
     }
     #btn-filter-institution {
         margin-top: 20px;
+        background-color: #00bfa5 !important;
     }
     #search-institution {
         margin: 20px 0;
@@ -11,6 +12,10 @@
     #select-order-institution{
         margin: 20px 0;
     }
+}
+#btn-filter-institution {
+    border: none;
+    background-color: #00bfa5;
 }
 .institution-container {
     position: relative;
@@ -83,3 +88,16 @@
     margin-left: 10px;
 }
 
+#btn-filter-institution:hover {
+    background-color: #017b6b !important;
+}
+
+.btn-add-institution {
+    border: none;
+    border-radius: 36px !important;
+    background-color: #00bfa5;
+}
+
+.btn-add-institution:hover {
+    background-color: #017b6b !important;
+}

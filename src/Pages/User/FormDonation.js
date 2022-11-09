@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import "./FormDonation.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
@@ -87,7 +88,7 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" list="datalistOptions" placeholder="Instituição" onChange={handleOrganizationChange}  aria-label="NameOrg" aria-describedby="basic-addon1" value={organizationName}/>
+                                                <input type="text" className="form-control" list="datalistOptions" placeholder="Nome da Organização" onChange={handleOrganizationChange}  aria-label="NameOrg" aria-describedby="basic-addon1" value={organizationName}/>
                                                 <datalist id="datalistOptions">
                                                     {filteredOrganizations.map((organization) => (
                                                         <option value={organization}/>                                                        
@@ -119,13 +120,13 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="1º nome"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nome_contato}/>
+                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nome_contato}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="url" className="form-control" placeholder="Sobrenome"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.sobrenome}/>
+                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.sobrenome}/>
                                             </div>
                                         </td>
                                         <td>
@@ -158,7 +159,7 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Cep"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
+                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
                                             </div>
                                         </td>
                                         <td>
@@ -179,7 +180,7 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Valor"  aria-label="DonationValue" aria-describedby="basic-addon1"/>
+                                                <input type="text" className="form-control" placeholder="Valor da Doação"  aria-label="DonationValue" aria-describedby="basic-addon1"/>
                                             </div>
                                         </td>
                                     </tr>
@@ -279,7 +280,7 @@ function FormDonation() {
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" className="btn btn-primary">Confirmar</button>
+                                            <button type="submit" className="btn btn-primary btn-confirmar-form-donation">Confirmar</button>
                                         </td>
                                     </tr>
                                     <tr>

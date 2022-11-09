@@ -2,7 +2,8 @@ import React from "react";
 
 import "./Report.css";
 import HeaderRH from "../../Components/LayoutRH/HeaderRH";
-import TitleInfoGlobalRH from "../../Components/TitleGlobal/TitleInfoGlobalRH";
+import titleGlobalInfo from "../../Infos/title-info-global";
+import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 import ReportCard from "../../Components/CardsUser/ReportCard";
 import sidebarInfo from "../../Infos/sidebarRH-info";
 import SidebarHomeRH from "../../Components/SideBars/HomeRHSideBar";
@@ -16,10 +17,25 @@ function Report() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-10 center-container-home">
-                            <TitleInfoGlobalRH titleevpmain={"RELATÓRIO DO EVP 2022"}/>
+                    <div className="title-global-info-container">
+                                {titleGlobalInfo.map((info) =>
+                                    <TitleInfoGlobal
+                                        titleevpmain={"RELATÓRIOS DO EVP"}
+                                        titledonateglobal={info.titledonateglobal}
+                                        titledonatevalor={info.titledonatevalor}
+                                        donatevalue={info.donatevalue}
+                                        titledonatemeta={info.titledonatemeta}
+                                        donatemeta={info.donatemeta}
+                                        titleactivityglobal={info.titleactivityglobal}
+                                        titleactivityvalor={info.titleactivityvalor}
+                                        activityvalue={info.activityvalue}
+                                        titleactivitymeta={info.titleactivitymeta}
+                                        activitymeta={info.activitymeta}
+                                    />
+                                )}
+                            </div>
                         <div className="feed-home-container">
                                 <ReportCard/>
-             
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-home">
