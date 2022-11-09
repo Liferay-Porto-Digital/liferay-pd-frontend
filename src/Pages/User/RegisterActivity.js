@@ -49,7 +49,6 @@ function RegisterActivity() {
                                     activityValue={info.activityValue}
                                     activityText={info.activityText}
                                     activityDate={info.activityDate}
-                                    activityTitle={info.activityTitle}
                                     activityState={info.activityState}
                                 />
                             )}

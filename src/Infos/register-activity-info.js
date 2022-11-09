@@ -7,7 +7,6 @@ const registerActivityInfo = [
         city: "Recife",
         activityText: "Horas de atividades voluntárias",
         activityValue: "4 Hrs",
-        activityTitle: "Em Andamento",
         activityDate: "18/11/2022 até 23/11/2022",
     },
     {
@@ -18,7 +17,6 @@ const registerActivityInfo = [
         city: "Recife",
         activityText: "Horas de atividades voluntárias",
         activityValue: "6 Hrs",
-        activityTitle: "Concluida",
         activityDate: "03/10/2022 até 08/10/2022",
     }
 ];
