@@ -2,6 +2,10 @@ import React, { createElement } from "react";
 import Info from "../../Infos/home-RH-feed-info";
 
 function ReportCard() {
+
+    function SumNumberDonation() {}
+    function SumNumberActivity() {}
+
     function SumDonate(){
         let soma = 0;
         Info.map(item => {
@@ -60,29 +64,30 @@ function ReportCard() {
                         </div>
                     </div>
                     <div className="row report-row">
-                        <div className="col-md data">
-                            <p>Taxa de participação dos funcionários</p>
-                            <h5 classeName="data">43%</h5>
-                        </div>
-                    </div>
-                    <div className="row report-row">
                         <div id="table-donate" className="col-md data">
-                            <p>Doações por instituição</p>
-                            <h5 classeName="data">{TableDonate()}</h5>
+                                <p>Doações por instituição</p>
+                                <h5 classeName="data">{TableDonate()}</h5>
                         </div>
-                    </div>
-                   
-                </div>
-                <div className="col-md-6 container-report">
-                    <div className="row report-row">
-                        <div className="col-md data">
-                            <button className="btn btn-primary" id="btn-report">Exportar</button>
-                        </div>
-                    </div>
-                <div className="row report-row">
                         <div className="col-md data">
                             <p>Atividade por instituição</p>
                             <h5 classeName="data">{TableActivity()}</h5>
+                        </div>
+                    </div>
+                    <div className="row report-row">
+                        <div className="col-md data">
+                            <p>Doações Realizadas</p>
+                            <h5 classeName="data">{SumNumberDonation()}</h5>
+                        </div>
+                        <div className="col-md data">
+                            <p>Atividades Realizadas</p>
+                            <h5 classeName="data">{SumNumberActivity()}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-6 container-report">
+                    <div className="row report-row">
+                        <div className="col-md data" style={{padding: 210}}>
+                            <button className="btn btn-primary" id="btn-report" >Exportar</button>
                         </div>
                     </div>
                 </div>

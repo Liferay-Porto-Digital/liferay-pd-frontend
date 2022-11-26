@@ -21,7 +21,7 @@ function HomeRH() {
                         <div className="title-global-info-container">
                                 {titleGlobalInfo.map((info) =>
                                     <TitleInfoGlobal
-                                        titleevpmain={"DOAÇÕES E ATIVIDADES VOLUNTÁRIAS"}
+                                        titleevpmain={"INFORMAÇÕES GERAIS EVP"}
                                         titledonateglobal={info.titledonateglobal}
                                         titledonatevalor={info.titledonatevalor}
                                         donatevalue={info.donatevalue}
@@ -36,22 +36,7 @@ function HomeRH() {
                                 )}
                             </div>
                         <div className="feed-home-container">
-                            {homeRHFeedInfo.map((info) =>
-                                <HomeRHFeedCard
-                                    id={info.id}
-                                    img={info.img}
-                                    avatar={info.avatar}
-                                    username={info.username}
-                                    userjob={info.userjob}
-                                    nameinst={info.nameinst}
-                                    dateinst={info.dateinst}
-                                    cityinst={info.cityinst}
-                                    valor ={info.valor}
-                                    atividade ={info.atividade}
-                                    optionConcession = {info.optionConcession}
-
-                                />
-                            )}
+                           <p className="info">Colocar informações sobre o EVP (Testar o bold)</p>
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-home">
