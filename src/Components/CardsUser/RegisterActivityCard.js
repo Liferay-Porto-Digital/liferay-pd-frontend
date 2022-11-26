@@ -13,11 +13,8 @@ function RegisterActivityCard(props) {
 
     return(
         <div className="card mb-3">
-            <div className="row g-0 align-items-center" onClick={() => {handlerRegisterDetail()}}>
-                <div className="col-md-2">
-                    <img className="img-fluid rounded-start" src={props.img} alt="image card"/>
-                </div>
-                <div className="col-md-3">
+            <div className="row g-0 align-items-center">
+                <div className="col-md-7">
                     <div className="card-body card-body-activity">
                         <h5 className="card-title title-card-activity">{props.name}</h5>
                         <span className="card-text text-card-activity">{props.phone}</span><br/>

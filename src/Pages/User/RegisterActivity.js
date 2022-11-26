@@ -24,7 +24,7 @@ function RegisterActivity() {
                         <div className="title-global-info-container">
                             {titleGlobalInfo.map((info) =>
                                 <TitleInfoGlobal
-                                    titleevpmain="REGISTRO DE ATIVIDADES"
+                                    titleevpmain="REGISTRO DE AÇÕES"
                                     titledonateglobal={info.titledonateglobal}
                                     titledonatevalor={info.titledonatevalor}
                                     donatevalue={info.donatevalue}
@@ -42,7 +42,6 @@ function RegisterActivity() {
                             {registerActivityInfo.map((info) =>
                                 <RegisterActivityCard
                                     id={info.id}
-                                    img={info.img}
                                     name={info.name}
                                     phone={info.phone}
                                     city={info.city}
