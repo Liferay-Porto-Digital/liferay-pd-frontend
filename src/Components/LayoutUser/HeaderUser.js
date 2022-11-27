@@ -50,7 +50,7 @@ function HeaderUser() {
                                     <NavLink className="nav-link" to="/home">Home</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to="/registeractivity">Registro de Atividades</NavLink>
+                                    <NavLink className="nav-link" to="/registeractivity">Minhas Ações</NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <NavLink className="nav-link" to="/institution">Instituições</NavLink>

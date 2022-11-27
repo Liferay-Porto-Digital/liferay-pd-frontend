@@ -52,7 +52,6 @@ function Institution() {
                             {institutionInfo.map((info) =>
                                 <InstitutionCard
                                     id={info.id}
-                                    img={info.img}
                                     name={info.name}
                                     phone={info.phone}
                                     email={info.email}

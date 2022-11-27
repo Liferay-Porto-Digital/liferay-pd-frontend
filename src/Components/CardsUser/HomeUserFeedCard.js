@@ -15,11 +15,8 @@ function HomeUserFeedCard(props) {
 
     return(
         <div className="card mb-3">
-            <div className="row g-0 " onClick={() => {handlerDetailFeedCard()}}>
-                <div className="col-md-2">
-                    <img className="img-fluid rounded-start" src={props.img} alt="image card"/>
-                </div>
-                <div className="col-md-3 align-self-center">
+            <div className="row g-0">
+                <div className="col-md-5 align-self-center">
                     <div className="card-body card-body-home">
                         <h5 className="card-title title-card-home">{props.nameinst}</h5>
                         <span className="card-text text-card-home">{props.dateinst}</span><br/>
