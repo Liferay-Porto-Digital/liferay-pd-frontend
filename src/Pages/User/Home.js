@@ -37,21 +37,7 @@ function Home() {
                             )}
                         </div>
                         <div className="feed-home-container">
-                            {homeUserFeedInfo.map((info) =>
-                                <HomeUserFeedCard
-                                    id={info.id}
-                                    img={info.img}
-                                    avatar={info.avatar}
-                                    username={info.username}
-                                    userjob={info.userjob}
-                                    nameinst={info.nameinst}
-                                    dateinst={info.dateinst}
-                                    cityinst={info.cityinst}
-                                    valor ={info.valor}
-                                    atividade ={info.atividade}
-                                    optionConcession = {info.optionConcession}
-                                />
-                            )}
+                        <p className="info">Colocar informações sobre o EVP (Testar o bold), COPIAR O STYLE DA PAGINA DE COLABORADOR</p>      
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-home">
