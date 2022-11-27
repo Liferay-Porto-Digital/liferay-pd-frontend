@@ -84,7 +84,6 @@ function Solicitations() {
                             {homeRHFeedInfo.map((info) =>
                                 <HomeRHFeedCard
                                     id={info.id}
-                                    img={info.img}
                                     avatar={info.avatar}
                                     username={info.username}
                                     userjob={info.userjob}
