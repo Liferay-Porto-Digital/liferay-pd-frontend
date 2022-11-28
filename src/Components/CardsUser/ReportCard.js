@@ -1,5 +1,4 @@
 import React, { createElement, useEffect, useState } from "react";
-import Info from "../../Infos/home-RH-feed-info";
 import { get } from "../Integration/API"
 
 
