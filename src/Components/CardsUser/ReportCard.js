@@ -1,8 +1,6 @@
 import React, { createElement, useEffect, useState } from "react";
 import { get } from "../Integration/API"
 
-
-
 function ReportCard() {
 
   const [summary, setSummary] = useState();
@@ -13,7 +11,6 @@ function ReportCard() {
     });
   }, []);
 
-    
     return(
         <div className="container-report">
             <div className="row report-row">
@@ -21,8 +18,7 @@ function ReportCard() {
                     <div className="row report-row">
                         <div className="col-md data">
                             <p>Total de doações</p>
-                            <h5 classeName="data">{"R$ "+ summary?.amountDonated
-}</h5>
+                            <h5 classeName="data">{"R$ "+ summary?.amountDonated}</h5>
                         </div>
                         <div className="col-md data">
                             <p>Total de atividades</p>
