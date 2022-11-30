@@ -3,13 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { ModelContext } from "../ModelContext";
 
 function RegisterActivityCard(props) {
-    const {context, setContext} = useContext(ModelContext);
-    const directDetail = useNavigate();
-
-    const handlerRegisterDetail = () => {
-        setContext(props.id);
-        directDetail("/registeractivitydetail");
-    }
+ 
 
     return(
         <div className="card mb-3">

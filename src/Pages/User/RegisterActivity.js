@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-
+import { get } from "../../Components/Integration/API"
 import "./RegisterActivity.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
 import titleGlobalInfo from "../../Infos/title-info-global";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
-import registerActivityInfo from "../../Infos/register-activity-info";
 import RegisterActivityCard from "../../Components/CardsUser/RegisterActivityCard";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
@@ -13,7 +12,13 @@ import Footer from "../../Components/layout/Footer";
 
 function RegisterActivity() {
     const mdate = new Date();
-
+    const [summary, setSummary] = useState();
+    
+    useEffect(() => {
+      get('form').then((response) => {
+          setSummary(response);
+      });
+    }, []);
   
     return(
         <div className="register-activity-container overflow-scroll">
@@ -39,15 +44,15 @@ function RegisterActivity() {
                             )}
                         </div>
                         <div className="feed-activity-container">
-                            {registerActivityInfo.map((info) =>
+                            {summary?.map((info) =>
                                 <RegisterActivityCard
                                     id={info.id}
-                                    name={info.name}
-                                    phone={info.phone}
-                                    city={info.city}
-                                    activityValue={info.activityValue}
+                                    name={info.institution.name}
+                                    phone={info.institution.phoneNumber}
+                                    city={info.institution.city}
+                                    activityValue={(info.type==="donation") ? "Doação no valor de "+ info.value+" reais": "Atividade de "+info.value+" horas"}
                                     activityText={info.activityText}
-                                    activityDate={info.activityDate}
+                                    activityDate={info.dateOfEvent}
                                     activityState={info.activityState}
                                 />
                             )}
