@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import "./AddInstitution.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
 import titleGlobalInfo from "../../Infos/title-info-global";
-import { ModelContext } from "../../Components/ModelContext";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
@@ -12,7 +11,6 @@ import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 
 function AddInstitution() {
     const mdate = new Date();
-    const {context, setContext} = useContext(ModelContext);
     
     return(
         <div className="institute-detail-container overflow-scroll">

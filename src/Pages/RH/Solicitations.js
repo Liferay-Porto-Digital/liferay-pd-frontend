@@ -1,17 +1,24 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import "./Solicitations.css";
 import HeaderRH from "../../Components/LayoutRH/HeaderRH";
 import titleGlobalInfo from "../../Infos/title-info-global";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
-import homeRHFeedInfo from "../../Infos/home-RH-feed-info";
 import HomeRHFeedCard from "../../Components/CardsUser/HomeRHFeedCard";
 import sidebarInfo from "../../Infos/sidebarRH-info";
 import SidebarHomeRH from "../../Components/SideBars/HomeRHSideBar";
 import Footer from "../../Components/layout/Footer";
+import { get } from "../../Components/Integration/API";
 
 function Solicitations() {
     //função trocar os options do select
+
+    const [integrate, setIintegrate] = useState();
+
+    useEffect(() => {
+        get("solicitation/recent").then((response) => {
+            setIintegrate(response)
+        })
+    });
 
     const Btn_all = () => {
         var select = document.getElementById("select-order-solicitation");
@@ -73,27 +80,20 @@ function Solicitations() {
                                 <option value="1" selected >Mais recentes</option>
                                 <option value="2">Mais antigas</option>
                                 <option value="3">Colaborador</option>
-                                <option value="3">Instituição</option>
-                                <option value="3">Doações</option>
-                                <option value="3">Atividades</option>
-                                <option value="3">Doações</option>
+                                <option value="4">Instituição</option>
+                                <option value="5">Doações</option>
+                                <option value="6">Atividades</option>
                             </select>
                             <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Filtrar</button>
                         </div>
                         <div className="feed-home-container">
-                            {homeRHFeedInfo.map((info) =>
+                            {integrate?.map((info) =>
                                 <HomeRHFeedCard
-                                    id={info.id}
-                                    avatar={info.avatar}
-                                    username={info.username}
-                                    userjob={info.userjob}
-                                    nameinst={info.nameinst}
-                                    dateinst={info.dateinst}
-                                    cityinst={info.cityinst}
-                                    valor ={info.valor}
-                                    atividade ={info.atividade}
-                                    optionConcession = {info.optionConcession}
-
+                                    username={info.collaborator.name}
+                                    userjob={info.collaborator.jobRole}
+                                    nameinst={info.institution.name}
+                                    dateinst={info.dateOfEvent}
+                                    optionConcession = {(info.optionConcession==="donation") ? "Doação no valor de "+ info.value+" reais": "Atividade de "+info.value+" horas"}
                                 />
                             )}
                         </div>
