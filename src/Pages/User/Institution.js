@@ -16,9 +16,10 @@ function Institution() {
     
     const [integrate, setIntegrate] = useState();
     useEffect(() => {
-        get("institution").then((response) => {
-            setIntegrate(response);
-        })
+        editDropdown();
+        // get("institution").then((response) => {
+        //     setIntegrate(response);
+        // })
     });
 
     function searchBtn() {
@@ -32,6 +33,24 @@ function Institution() {
         })
     };
 
+    const [dropdown, setDropdown] = useState();
+    const editDropdown = d => {
+        if (dropdown == 1) {
+            get("institution").then((response) => {
+                setIntegrate(response);
+            })
+        }
+        if (dropdown == 2) {
+            get("institution/more-solicitation").then((response) => {
+                setIntegrate(response);
+            })
+        }
+        if (dropdown == 3) {
+            get("institution/less-solicitation").then((response) => {
+                setIntegrate(response);
+            })
+        }
+    }
     
     return(
         <div className="institution-container overflow-scroll">
@@ -60,12 +79,14 @@ function Institution() {
                         <div className="filter-institution-container">
                             <input type="search" id="search-institution" placeholder="Name of Institution" name="search"/>
                             <button className="btn btn-primary" id="btn-filter-institution" onClick={searchBtn()}>Buscar</button>
-                            <select className="form-select" id="select-order-institution" name="selectFilterInstitution">
-                                <option value="1" selected >Todas Instituições</option>
-                                <option value="2">Mais solicitações</option>
-                                <option value="3">Menos solicitações</option>
-                            </select>
-                            <button className="btn btn-primary" id="btn-filter-institution">Filtrar</button>
+                            <form onSubmit={editDropdown}>
+                                <select className="form-select" id="select-order-institution" name="selectFilterInstitution" value={dropdown} onChange={text => setDropdown(text.target.value)}>
+                                    <option value="1" selected >Todas Instituições</option>
+                                    <option value="2">Mais solicitações</option>
+                                    <option value="3">Menos solicitações</option>
+                                </select>
+                                <button className="btn btn-primary" id="btn-filter-institution" type="submit">Filtrar</button>
+                            </form>
                         </div>
                         <div className="institution-card-container">
                             {integrate?.map((info) =>
