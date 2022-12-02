@@ -71,11 +71,11 @@ function Institution() {
                             {integrate?.map((info) =>
                                 <InstitutionCard
                                     name={info.name}
-                                    phone={info.phoneNumber}
-                                    email={info.email}
-                                    donateds={info.description}
-                                    titledonate={info.city}
-                                    instdate={info.url}
+                                    phone={"Telefone: " + info.phoneNumber}
+                                    email={"Email: " + info.email}
+                                    donateds={info.numberOfActionsReceived}
+                                    titledonate={"Total de Ações Recebidas"}
+                                    instdate={"Instituição cadstrada em " + info.dateOfCreation}
                                 />
                             )}
                         </div>
