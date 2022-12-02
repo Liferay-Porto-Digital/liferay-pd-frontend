@@ -36,7 +36,13 @@ function HomeRH() {
                                 )}
                             </div>
                         <div className="feed-home-container">
-                           <p className="info">Colocar informações sobre o EVP (Testar o bold)</p>
+                           <p className="info">Olá Administrador(a),</p>
+                            <p className="info">Este portal foi preparado especialmente para que você possa ter maior
+                                controle do andamento do EVP. Veja os fluxos disponíveis:</p>
+                            <p className="info"> - Para realizar consultas sobre o programa se
+                                dirija à aba de "Solicitações" onde dispomos de filtros e barra de pesquisa.</p>
+                            <p className="info"> - Para acompanhar as métricas gerais do EVP acesse a página de
+                                "Relatórios" onde também será possível exportar um arquivo excel do mesmo.</p>
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-home">
