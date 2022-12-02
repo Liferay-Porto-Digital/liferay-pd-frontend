@@ -92,7 +92,7 @@ function Solicitations() {
                                     username={info.collaborator.name}
                                     userjob={info.collaborator.jobRole}
                                     nameinst={info.institution.name}
-                                    dateinst={info.dateOfEvent}
+                                    dateinst={"Data Ação: " + info.dateOfEvent}
                                     optionConcession = {(info.optionConcession==="donation") ? "Doação no valor de "+ info.value+" reais": "Atividade de "+info.value+" horas"}
                                 />
                             )}
