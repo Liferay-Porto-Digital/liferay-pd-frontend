@@ -12,16 +12,16 @@ import Footer from "../../Components/layout/Footer";
 
 function Institution() {
     const mdate = new Date();
-    const input = document.querySelector('#search-institution')
-    
+    const [input, setInput] = useState();    
+    const [dropdown, setDropdown] = useState(1);
     const [integrate, setIntegrate] = useState();
+    
     useEffect(() => {
         editDropdown();
         // get("institution").then((response) => {
         //     setIntegrate(response);
         // })
-    });
-
+    }, [dropdown]);
     function searchBtn() {
         const getParam = async (path) => {
             const connectAPI = await fetch(`https://evp-api.herokuapp.com/api/v1/institution/${path}`)
@@ -29,11 +29,11 @@ function Institution() {
             return data;
         };
         getParam(input).then((response) => {
-            setIntegrate(response);
+            console.log(response)
+            setIntegrate([response]);
         })
     };
 
-    const [dropdown, setDropdown] = useState();
     const editDropdown = d => {
         if (dropdown == 1) {
             get("institution").then((response) => {
@@ -77,15 +77,14 @@ function Institution() {
                             )}
                         </div>
                         <div className="filter-institution-container">
-                            <input type="search" id="search-institution" placeholder="Name of Institution" name="search"/>
-                            <button className="btn btn-primary" id="btn-filter-institution" onClick={searchBtn()}>Buscar</button>
+                            <input type="search" id="search-institution" placeholder="Name of Institution" name="search" value={input} onChange={e => setInput(e.target.value)}/>
+                            <button className="btn btn-primary" id="btn-filter-institution" onClick={searchBtn}>Buscar</button>
                             <form onSubmit={editDropdown}>
                                 <select className="form-select" id="select-order-institution" name="selectFilterInstitution" value={dropdown} onChange={text => setDropdown(text.target.value)}>
                                     <option value="1" selected >Todas Instituições</option>
                                     <option value="2">Mais solicitações</option>
                                     <option value="3">Menos solicitações</option>
                                 </select>
-                                <button className="btn btn-primary" id="btn-filter-institution" type="submit">Filtrar</button>
                             </form>
                         </div>
                         <div className="institution-card-container">
