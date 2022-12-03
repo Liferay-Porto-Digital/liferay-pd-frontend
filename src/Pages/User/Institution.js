@@ -18,10 +18,8 @@ function Institution() {
     
     useEffect(() => {
         editDropdown();
-        // get("institution").then((response) => {
-        //     setIntegrate(response);
-        // })
     }, [dropdown]);
+
     function searchBtn() {
         const getParam = async (path) => {
             const connectAPI = await fetch(`https://evp-api.herokuapp.com/api/v1/institution/${path}`)
@@ -32,7 +30,7 @@ function Institution() {
             console.log(response)
             setIntegrate([response]);
         })
-    };
+    }
 
     const editDropdown = d => {
         if (dropdown == 1) {
@@ -77,7 +75,7 @@ function Institution() {
                             )}
                         </div>
                         <div className="filter-institution-container">
-                            <input type="search" id="search-institution" placeholder="Name of Institution" name="search" value={input} onChange={e => setInput(e.target.value)}/>
+                            <input type="search" id="search-institution" placeholder="Buscar por Nome de Instituição" name="search" value={input} onChange={e => setInput(e.target.value)}/>
                             <button className="btn btn-primary" id="btn-filter-institution" onClick={searchBtn}>Buscar</button>
                             <form onSubmit={editDropdown}>
                                 <select className="form-select" id="select-order-institution" name="selectFilterInstitution" value={dropdown} onChange={text => setDropdown(text.target.value)}>
