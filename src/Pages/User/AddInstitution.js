@@ -7,10 +7,12 @@ import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
+import {post} from "../../Components/Integration/API"
 
 
 function AddInstitution() {
     const mdate = new Date();
+
     
     return(
         <div className="institute-detail-container overflow-scroll">

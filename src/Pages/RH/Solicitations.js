@@ -10,46 +10,50 @@ import Footer from "../../Components/layout/Footer";
 import { get } from "../../Components/Integration/API";
 
 function Solicitations() {
-    //função trocar os options do select
-
-    const [integrate, setIintegrate] = useState();
+    const mdate = new Date();
+    const [input, setInput] = useState();
+    const [dropdown, setDropdown] = useState(1);
+    const [integrate, setIntegrate] = useState();
 
     useEffect(() => {
-        get("solicitation/recent").then((response) => {
-            setIintegrate(response)
-        })
-    });
+        editDropdown();
+    }, [dropdown]);
 
-    const Btn_all = () => {
-        var select = document.getElementById("select-order-solicitation");
-        var opt = ['Mais recentes','Mais antigas','Colaborador','Instituição'];
-        select.replaceChildren();
-        opt.forEach(function (element,chave){
-            select.appendChild(new Option(element,chave))
-            
+    function searchBtn() {
+        const getParam = async (path) => {
+            const connectAPI = await fetch(`https://evp-api.herokuapp.com/api/v1/solicitations/institution/${path}`)
+            const data = await connectAPI.json()
+            return data;
+        };
+        getParam(input).then((response) => {
+            console.log(response)
+            setIntegrate(response);
         })
     }
 
-    const Btn_donate = () => {
-        var select = document.getElementById("select-order-solicitation");
-        var opt = ['Maior valor','Menor valor'];
-        select.replaceChildren();
-        opt.forEach(function (element,chave){
-            select.appendChild(new Option(element,chave))
-            
-        })
+    const editDropdown = d => {
+        if (dropdown == 1) {
+            get("solicitation/recent").then((response) => {
+                setIntegrate(response);
+            })
+        }
+        if (dropdown == 2) {
+            get("solicitation/older").then((response) => {
+                setIntegrate(response);
+            })
+        }
+        if (dropdown == 3) {
+            get("solicitation/donation").then((response) => {
+                setIntegrate(response);
+            })
+        }
+        if (dropdown == 4) {
+            get("solicitation/activity").then((response) => {
+                setIntegrate(response);
+            })
+        }
     }
 
-    const Btn_activite = () => {
-        var select = document.getElementById("select-order-solicitation");
-        var opt = ['Mais horas','Menos horas'];
-        select.replaceChildren();
-        opt.forEach(function (element,chave){
-            select.appendChild(new Option(element,chave))
-            
-        })
-    }
-    var mdate = new Date();
     return(
         <div className="home-user-container overflow-scroll">
             <HeaderRH/>
@@ -74,18 +78,17 @@ function Solicitations() {
                                 )}
                             </div>
                             <div className="filter-institution-container">
-                            <input type="search" id="search-institution" placeholder="Search" name="search"/>
-                            <span id="text-info-custom">ordenar</span>
-                            <select className="form-select" id="select-order-solicitation" name="selectFilterInstitution">
-                                <option value="1" selected >Mais recentes</option>
-                                <option value="2">Mais antigas</option>
-                                <option value="3">Colaborador</option>
-                                <option value="4">Instituição</option>
-                                <option value="5">Doações</option>
-                                <option value="6">Atividades</option>
-                            </select>
-                            <button className="btn btn-primary" id="btn-solicitation-all" onClick={()=>{Btn_all()}}>Filtrar</button>
-                        </div>
+                                <input type="search" id="search-institution" placeholder="Buscar por Nome de Instituição" name="search" value={input} onChange={e => setInput(e.target.value)}/>
+                                <button className="btn btn-primary" id="btn-filter-institution" onClick={searchBtn}>Buscar</button>
+                                <form onSubmit={editDropdown}>
+                                    <select className="form-select" id="select-order-solicitation" name="selectFilterInstitution" value={dropdown} onChange={text => setDropdown(text.target.value)}>
+                                        <option value="1" selected >Mais recentes</option>
+                                        <option value="2">Mais antigas</option>
+                                        <option value="3">Doações</option>
+                                        <option value="4">Atividades</option>
+                                    </select>
+                                </form>
+                            </div>
                         <div className="feed-home-container">
                             {integrate?.map((info) =>
                                 <HomeRHFeedCard
@@ -93,7 +96,7 @@ function Solicitations() {
                                     userjob={info.collaborator.jobRole}
                                     nameinst={info.institution.name}
                                     dateinst={"Data Ação: " + info.dateOfEvent}
-                                    optionConcession = {(info.optionConcession==="donation") ? "Doação no valor de "+ info.value+" reais": "Atividade de "+info.value+" horas"}
+                                    optionConcession = {(info.type==="donation") ? "Doação no valor de "+ info.value+" reais": "Atividade de "+info.value+" horas"}
                                 />
                             )}
                         </div>
