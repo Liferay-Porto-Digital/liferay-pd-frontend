@@ -24,9 +24,6 @@ function AddInstitution() {
     const [email, setEmail] = useState();
     const [description, setDescription] = useState();
 
-    const requestData = {
-
-    }
 
     function addButton() {
         const postInst = async () => {
@@ -44,7 +41,6 @@ function AddInstitution() {
                 headers: {
                 'Content-type': 'application/json; charset=UTF-8',
               }})
-            const data = await connectAPI.json()
             return connectAPI;
         };
         postInst().then((response) => {

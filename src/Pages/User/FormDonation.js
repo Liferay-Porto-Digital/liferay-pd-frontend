@@ -12,6 +12,21 @@ import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 
 function FormDonation() {
     const mdate = new Date();
+    const [nameContact, setNameContact] = useState();
+    const [lastNameContact, setLastNameContact] = useState();
+    const [dateOfEvent, setDateOfEvent] = useState();
+    const [valueDonation, setValueDonation] = useState();
+    const [disaster, setDisaster] = useState(false);
+    const [disease, setDisease] = useState(false);
+    const [food, setFood] = useState(false);
+    const [health, setHealth] = useState(false);
+    const [education, setEducation] = useState(false);
+    const [justice, setJustice] = useState(false);
+    const [capacitation, setCapacitation] = useState(false);
+    const [otherObjective, setOtherObjective] = useState();
+    const [otherVulnerabilities, setOtherVulnerabilities] = useState();
+    const [vulnerability, setVulnerability] = useState(false);
+    const [streetSituation, setStreetSituation] = useState(false);
     const [organizationName, setOrganizationName] = useState("")
     const [mapOrganization, setMapOrganization] = useState([])
      const handleOrganizationChange = (e) => {
@@ -35,8 +50,37 @@ function FormDonation() {
      const filteredOrganizations = mapOrganization.filter((organization) => {
           return organization.name.toLowerCase().includes(organizationName.toLowerCase())
          })
+
+         function addButton() {
+            const postInst = async () => {
+                const connectAPI = await fetch('https://evp-api.herokuapp.com/api/v1/form/add/donation', { method: 'POST',  body: JSON.stringify({
+                    dateOfEvent: dateOfEvent,
+                    institutionCity: organizationData.city,
+                    institutionEmail: organizationData.email,
+                    institutionName: organizationName,
+                    institutionPhoneNumber: organizationData.phoneNumber,
+                    institutionRegistrationNumber: organizationData.registrationNumber,
+                    institutionState: organizationData.state,
+                    institutionStreet: organizationData.city,
+                    institutionUrl: organizationData.url,
+                    institutionZipCode: organizationData.zipCode,
+                    lastNameContact: lastNameContact,
+                    nameContact: nameContact,
+                    value: valueDonation,
+                    objective: "string",
+                    vulnerability: "string"
+                }), 
+                    headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  }})
+
+                return connectAPI;
+            };
+            postInst().then((response) => {
+                console.log(response)
+            })
+        };
          
- 
 
     return(
         <div className="institute-detail-container overflow-scroll">
@@ -106,13 +150,13 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nameContact}/>
+                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={nameContact} onChange={ e => setNameContact(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.lastNameContact}/>
+                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={lastNameContact} onChange={e => setLastNameContact(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
@@ -149,26 +193,13 @@ function FormDonation() {
                                             </div>
                                         </td>
                                         <td>
-                                            <select className="form-select" aria-label="Default select example">
-                                                <option value={false} selected>Brasil</option>
-                                                <option value="valor2">Canadá</option>
-                                                <option value="valor3">Chile</option>
-                                                <option value="valor4">Estados Unidos</option>
-                                                <option value="valor5">Bolívia</option>
-                                                <option value="valor6">Portugal</option>
-                                                <option value="valor7">Japão</option>
-                                                <option value="valor8">Noruega</option>
-                                                <option value="valor9">Suiça</option>
-                                            </select>
+                                            <div className="input-group mb-3">
+                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <input type="text" className="form-control" placeholder="Valor da Doação"  aria-label="DonationValue" aria-describedby="basic-addon1" value={valueDonation} onChange={ e => setValueDonation(e.target.value)}/>
+                                            </div>
                                         </td>
                                         </tr>
                                         <tr>
-                                        <td>
-                                            <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Valor da Doação"  aria-label="DonationValue" aria-describedby="basic-addon1"/>
-                                            </div>
-                                        </td>
                                     </tr>
                                     <tr>
                                         <td><p><b>Você pode escolher um ou mais objetivos:</b></p></td>
@@ -176,25 +207,25 @@ function FormDonation() {
                                     <tr>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={disaster} onChange={e => setDisaster(!disaster)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Auxílio em Desastres</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={food} onChange={e => setFood(!food)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Fornecer comida / água / abrigo</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={health} onChange={e => setHealth(!health)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Saúde</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={education} onChange={e => setEducation(!education)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Educação</label>
                                             </div>                                            
                                         </td>
@@ -202,26 +233,20 @@ function FormDonation() {
                                     <tr>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={justice} onChange={e => setJustice(!justice)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Liberdade / Justiça</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={capacitation} onChange={e => setCapacitation(!capacitation)}/>
                                                 <label className="form-check-label" for="flexCheckDefault">Capacitação Profissional</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                                <label className="form-check-label" for="flexCheckDefault"> Outros</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Para outros objetivos"  aria-label="Others" aria-describedby="basic-addon1"/>
+                                                <input type="text" className="form-control" placeholder="Para outros objetivos"  aria-label="Others" aria-describedby="basic-addon1" value={otherObjective} onChange={e => setOtherObjective(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -229,52 +254,46 @@ function FormDonation() {
                                     <tr>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={vulnerability} onChange={e => setVulnerability(!vulnerability)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Vulnerabilidade socioeconômica local / Global</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={disease} onChange={e => setDisease(!disease)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Doença / Transtorno mental</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={streetSituation} onChange={e => setStreetSituation(!streetSituation)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Situação de rua</label>
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                                <label className="form-check-label" for="flexCheckDefault"> Outros</label>
+                                            <div className="input-group mb-3">
+                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <input type="text" className="form-control" placeholder="Para outro tipo vulnerabilidade"  aria-label="Others" aria-describedby="basic-addon1" value={otherVulnerabilities} onChange={e => setOtherVulnerabilities(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Para outro tipo vulnerabilidade"  aria-label="Others" aria-describedby="basic-addon1"/>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <span className="input-group-text" id="basic-addon1" value={dateOfEvent} onChange={e => setDateOfEvent(!dateOfEvent)}></span>
                                                 <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"/>
                                             </div>
                                         </td>
                                         <td>
-                                            <button type="submit" className="btn btn-primary btn-confirmar-form-donation">Confirmar</button>
+                                        <div  className="input-group mb-3">
+                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <textarea className="form-control" aria-label="Organization Description" placeholder="Descrição da Organização" value={organizationData?.description}></textarea>
+                                            </div>                                           
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div  className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1"></span>
-                                                <textarea className="form-control" aria-label="Organization Description" placeholder="Descrição da Organização" value={organizationData?.description}></textarea>
-                                            </div>
+                                            <button type="submit" className="btn btn-primary btn-confirmar-form-donation" onClick={addButton}>Confirmar</button>
                                         </td>
                                     </tr>
                                 </tbody>
