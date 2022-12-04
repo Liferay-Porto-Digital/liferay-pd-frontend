@@ -23,12 +23,12 @@ function HomeRHFeedCard(props) {
                 </div>
                 <div className="col-md-3 align-self-center ">
                     <h6 className="card-title title-card-info">
-                        {(props.optionConcession==="Propostas") ? "Doação no valor de "+ props.valor+" reais": "Atividade de "+props.atividade+" horas"}
+                        {props.optionConcession}
                     </h6>
                 </div>
                 <div className="col-md-2 offset-md-2">
                     <div className="card-body card-body-home">
-                        <img className="avatar-card avatar-card-home" src={props.avatar} alt="avatar"/><br/>
+
                         <h5 className="card-title title-card-home">{props.username}</h5>
                         <span className="card-text text-card-home">{props.userjob}</span>
                     </div>

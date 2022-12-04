@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import "./FormDonation.css";
@@ -13,41 +13,27 @@ import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 function FormDonation() {
     const mdate = new Date();
     const [organizationName, setOrganizationName] = useState("")
-    const {context, setContext} = useContext(ModelContext);
-    const mapOrganization = {
-        "Imip" : {
-            url : "http://www1.imip.org.br/imip/home/index.html",
-            email: "maria@email.com",
-            telefone: "(81) 91461-8811",
-            nome_contato: "Maria",
-            sobrenome : "Cristina",
-            id: "0",
-            rua : "Rua dos Coelhos,200 - Boa Vista",
-            cidade: "Recife",
-            regiao: "PE",
-            cep: "50070-902"
-        }, 
-        "Solidariza Recife" : {
-         url : "solidarizarecife.com",
-         email: "solidarizarecife@solidarizarecife.com.br",
-         telefone: "999999",
-         nome_contato: "Maria",
-         sobrenome : "Cristina",
-         id: "1",
-         rua : "Centro do Recife",
-         cidade: "Recife",
-         regiao: "PR",
-         cep: "50540-092"
-        }
-     }
+    const [mapOrganization, setMapOrganization] = useState([])
      const handleOrganizationChange = (e) => {
              const value = e.target.value
              setOrganizationName (value)
      }
-     const organizationData = mapOrganization[organizationName]
-     const organizations = Object.keys(mapOrganization)
-     const filteredOrganizations = organizations.filter((organization) => {
-          return organization.includes(organizationName)
+     useEffect(() => {
+        const getParam = async () => {
+            const connectAPI = await fetch(`https://evp-api.herokuapp.com/api/v1/institution/`)
+            const data = await connectAPI.json()
+            return data;
+        };
+        getParam().then((response) => {
+            console.log(response)
+            setMapOrganization(response);
+        });
+     }, [])
+     const organizationData = mapOrganization.find((organization) => {
+        return organization.name.toLowerCase() === organizationName.toLowerCase()
+     });
+     const filteredOrganizations = mapOrganization.filter((organization) => {
+          return organization.name.toLowerCase().includes(organizationName.toLowerCase())
          })
          
  
@@ -112,7 +98,7 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="tel" className="form-control" placeholder="Telefone"  aria-label="Telefone" aria-describedby="basic-addon1"value={organizationData?.telefone}/>
+                                                <input type="tel" className="form-control" placeholder="Telefone"  aria-label="Telefone" aria-describedby="basic-addon1"value={organizationData?.phoneNumber}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -120,26 +106,26 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nome_contato}/>
+                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nameContact}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.sobrenome}/>
+                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.lastNameContact}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.id}/>
+                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.registrationNumber}/>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Rua"  aria-label="Street" aria-describedby="basic-addon1"value={organizationData?.rua}/>
+                                                <input type="text" className="form-control" placeholder="Rua"  aria-label="Street" aria-describedby="basic-addon1"value={organizationData?.street}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -147,24 +133,24 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Cidade"  aria-label="City" aria-describedby="basic-addon1"value={organizationData?.cidade}/>
+                                                <input type="text" className="form-control" placeholder="Cidade"  aria-label="City" aria-describedby="basic-addon1"value={organizationData?.city}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Região"  aria-label="Region" aria-describedby="basic-addon1"value={organizationData?.regiao}/>
+                                                <input type="text" className="form-control" placeholder="Região"  aria-label="Estado" aria-describedby="basic-addon1"value={organizationData?.state}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
+                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.zipCode}/>
                                             </div>
                                         </td>
                                         <td>
                                             <select className="form-select" aria-label="Default select example">
-                                                <option value="valor1" selected>Brasil</option>
+                                                <option value={false} selected>Brasil</option>
                                                 <option value="valor2">Canadá</option>
                                                 <option value="valor3">Chile</option>
                                                 <option value="valor4">Estados Unidos</option>
@@ -185,7 +171,7 @@ function FormDonation() {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><p><b>Você pode escolher um ou mais objetos:</b></p></td>
+                                        <td><p><b>Você pode escolher um ou mais objetivos:</b></p></td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -287,7 +273,7 @@ function FormDonation() {
                                         <td>
                                             <div  className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <textarea className="form-control" aria-label="Organization Description" placeholder="Descrição da Organização"></textarea>
+                                                <textarea className="form-control" aria-label="Organization Description" placeholder="Descrição da Organização" value={organizationData?.description}></textarea>
                                             </div>
                                         </td>
                                     </tr>

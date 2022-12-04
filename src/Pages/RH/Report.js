@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./Report.css";
 import HeaderRH from "../../Components/LayoutRH/HeaderRH";
 import titleGlobalInfo from "../../Infos/title-info-global";

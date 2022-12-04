@@ -1,5 +1,7 @@
 # Liferay Project 2022 (ENG - US)
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/46a042cd290b4ef6b230aa491f6cd8fb)](https://www.codacy.com/gh/Liferay-Porto-Digital/liferay-pd-frontend/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Liferay-Porto-Digital/liferay-pd-frontend&amp;utm_campaign=Badge_Grade)
+
 ### General Information
 - Project developed in Porto Digital residency program in partnership with Liferay
 - Project focused on FrontEnd development
