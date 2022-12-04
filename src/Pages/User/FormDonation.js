@@ -171,7 +171,7 @@ function FormDonation() {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><p><b>Você pode escolher um ou mais objetos:</b></p></td>
+                                        <td><p><b>Você pode escolher um ou mais objetivos:</b></p></td>
                                     </tr>
                                     <tr>
                                         <td>
