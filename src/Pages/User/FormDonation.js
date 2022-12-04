@@ -55,21 +55,30 @@ function FormDonation() {
             const postInst = async () => {
                 const connectAPI = await fetch('https://evp-api.herokuapp.com/api/v1/form/add/donation', { method: 'POST',  body: JSON.stringify({
                     dateOfEvent: dateOfEvent,
+                    disasterObjective: disaster,
+                    educationObjective: education,
+                    healthObjective: health,
+                    healthVulnerability: disease,
+                    homelessVulnerability: streetSituation,
                     institutionCity: organizationData.city,
                     institutionEmail: organizationData.email,
                     institutionName: organizationName,
                     institutionPhoneNumber: organizationData.phoneNumber,
                     institutionRegistrationNumber: organizationData.registrationNumber,
                     institutionState: organizationData.state,
-                    institutionStreet: organizationData.city,
+                    institutionStreet: organizationData.street,
                     institutionUrl: organizationData.url,
                     institutionZipCode: organizationData.zipCode,
+                    justiceObjective: justice,
                     lastNameContact: lastNameContact,
+                    monetaryVulnerability: vulnerability,
                     nameContact: nameContact,
-                    value: valueDonation,
-                    objective: "string",
-                    vulnerability: "string"
-                }), 
+                    otherObjective: otherObjective,
+                    otherVulnerability: otherVulnerabilities,
+                    professionalObjective: capacitation,
+                    suppliesObjective: food,
+                    value: valueDonation
+                }),
                     headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                   }})
