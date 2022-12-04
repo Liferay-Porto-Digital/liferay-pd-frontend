@@ -48,11 +48,11 @@ function RegisterActivity() {
                                 <RegisterActivityCard
                                     id={info.id}
                                     name={info.institution.name}
-                                    phone={info.institution.phoneNumber}
-                                    city={info.institution.city}
+                                    phone={"Telefone: " + info.institution.phoneNumber}
+                                    city={"Cidade: " + info.institution.city}
                                     activityValue={(info.type==="donation") ? "Doação no valor de "+ info.value+" reais": "Atividade de "+info.value+" horas"}
                                     activityText={info.activityText}
-                                    activityDate={info.dateOfEvent}
+                                    activityDate={"Ação feita em " + info.dateOfEvent}
                                     activityState={info.activityState}
                                 />
                             )}

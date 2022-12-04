@@ -37,7 +37,13 @@ function Home() {
                             )}
                         </div>
                         <div className="feed-home-container">
-                        <p className="info">Colocar informações sobre o EVP (Testar o bold), COPIAR O STYLE DA PAGINA DE COLABORADOR</p>      
+                            <p className="info">Olá Colaborador(a),</p>
+                            <p className="info">Este portal foi preparado para que você possa ter uma experiência mais
+                                leve e intuitiva com o EVP. Veja os fluxos disponíveis:</p>
+                            <p className="info"> - Acompanhe suas ações realizadas em "Minhas Ações"</p>
+                            <p className="info"> - Cadastre ou consulte instituições no programa em "Instituições".</p>
+                            <p className="info"> - Selecione e preencha o tipo de formulário em "Formulários".
+                                Contamos com autocomplete a fim de facilitar o preenchimento do mesmo.</p>
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-home">
