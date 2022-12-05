@@ -83,6 +83,7 @@ function FormDonation() {
             };
             postInst().then((response) => {
             })
+            alert("Formulário Criado!")
         };
          
 

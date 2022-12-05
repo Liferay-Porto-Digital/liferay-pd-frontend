@@ -44,8 +44,8 @@ function AddInstitution() {
             return connectAPI;
         };
         postInst().then((response) => {
-            console.log(response)
         })
+        alert("Instituição Criada!")
     };
     
 
