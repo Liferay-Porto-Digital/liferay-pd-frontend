@@ -1,10 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
 import "./FormDonation.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
 import titleGlobalInfo from "../../Infos/title-info-global";
-import { ModelContext } from "../../Components/ModelContext";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
@@ -51,6 +48,12 @@ function FormDonation() {
           return organization.name.toLowerCase().includes(organizationName.toLowerCase())
          })
 
+         const handleEvent = (e) => {
+            e.preventDefault();
+            console.log(dateOfEvent);
+            setDateOfEvent(e)
+         };
+
          function addButton() {
             const postInst = async () => {
                 const connectAPI = await fetch('https://evp-api.herokuapp.com/api/v1/form/add/donation', { method: 'POST',  body: JSON.stringify({
@@ -90,6 +93,7 @@ function FormDonation() {
             })
         };
          
+        console.log(dateOfEvent);
 
     return(
         <div className="institute-detail-container overflow-scroll">
@@ -289,7 +293,7 @@ function FormDonation() {
                                     <tr>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1" value={dateOfEvent} onChange={e => setDateOfEvent(!dateOfEvent)}></span>
+                                                <span className="input-group-text" id="basic-addon1" value={dateOfEvent} onChange={e => setDateOfEvent(e.target.value)}></span>
                                                 <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"/>
                                             </div>
                                         </td>
