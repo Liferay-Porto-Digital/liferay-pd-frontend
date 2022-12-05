@@ -19,10 +19,10 @@ function Login() {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         {/* <Form.Label>Password</Form.Label> */}
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Senha" />
                     </Form.Group>
                     <Form.Group className="mb-3">
-                        <NavLink className="btn btn-primary buttom-submit-custom" to="/home">Submit</NavLink>
+                        <NavLink className="btn btn-primary buttom-submit-custom" to="/home">Entrar</NavLink>
                     </Form.Group>
 
                     <Link className="forgot-password" to="/">Esqueceu sua senha?</Link>

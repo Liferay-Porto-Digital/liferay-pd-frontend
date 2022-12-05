@@ -112,12 +112,12 @@ function AddInstitution() {
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <input type="text" className="form-control" placeholder="Região"  aria-label="Region" aria-describedby="basic-addon1" value={estado} onChange={e => setEstado(e.target.value)}/>
+                                                <input type="text" className="form-control" placeholder="Estado (ex: PE, RJ...)"  aria-label="Region" aria-describedby="basic-addon1" value={estado} onChange={e => setEstado(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1" value={zipCode} onChange={e => setZipCode(e.target.value)}/>
+                                                <input type="text" className="form-control" placeholder="CEP (min: 8 dígitos)"  aria-label="PostalCode" aria-describedby="basic-addon1" value={zipCode} onChange={e => setZipCode(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
