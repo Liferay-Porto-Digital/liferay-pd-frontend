@@ -188,13 +188,13 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Região"  aria-label="Estado" aria-describedby="basic-addon1"value={organizationData?.state}/>
+                                                <input type="text" className="form-control" placeholder="Estado (ex: PE, RJ...)"  aria-label="Estado" aria-describedby="basic-addon1"value={organizationData?.state}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.zipCode}/>
+                                                <input type="text" className="form-control" placeholder="CEP (min: 8 dígitos)"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.zipCode}/>
                                             </div>
                                         </td>
                                         <td>
@@ -278,7 +278,7 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Para outro tipo vulnerabilidade"  aria-label="Others" aria-describedby="basic-addon1" value={otherVulnerabilities} onChange={e => setOtherVulnerabilities(e.target.value)}/>
+                                                <input type="text" className="form-control" placeholder="Para outra vulnerabilidade"  aria-label="Others" aria-describedby="basic-addon1" value={otherVulnerabilities} onChange={e => setOtherVulnerabilities(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
