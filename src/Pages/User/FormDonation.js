@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./FormDonation.css";
+import "./FormActivity.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
 import titleGlobalInfo from "../../Infos/title-info-global";
 import sidebarInfo from "../../Infos/sidebar-info";
@@ -7,7 +7,7 @@ import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
 
-function FormDonation() {
+function FormActivity() {
     const mdate = new Date();
     const [nameContact, setNameContact] = useState();
     const [lastNameContact, setLastNameContact] = useState();
@@ -200,7 +200,7 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Valor da Doação"  aria-label="DonationValue" aria-describedby="basic-addon1" value={valueDonation} onChange={ e => setValueDonation(e.target.value)}/>
+                                                <input type="text" className="form-control" placeholder="Valor a ser Doado"  aria-label="DonationValue" aria-describedby="basic-addon1" value={valueDonation} onChange={ e => setValueDonation(e.target.value)}/>
                                             </div>
                                         </td>
                                         </tr>
@@ -286,7 +286,7 @@ function FormDonation() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"  value={dateOfEvent} onCha={e => setDateOfEvent(e.target.value)}/>
+                                                <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"  value={dateOfEvent} onChange={e => setDateOfEvent(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
@@ -330,4 +330,4 @@ function FormDonation() {
     );
 }
 
-export default FormDonation;
+export default FormActivity;
