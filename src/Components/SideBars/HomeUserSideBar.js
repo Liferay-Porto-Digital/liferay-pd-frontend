@@ -2,17 +2,19 @@ import React, { useEffect, useState } from "react";
 import { get } from "../Integration/API"
 
 function HomeUserSideBar(props) {
-    const donateValue = "R$ " + props.donateValue + ".00" + " / " + props.donateMax;
-    const activityValue = props.activityValue + " Hrs" + " / " + props.activityMax;
+    
+    
+    const [summary, setSummary] = useState();
+    
+    useEffect(() => {
+        get('report').then((response) => {
+            setSummary(response);
+        });
+    }, []);
+    
+    const donateValue = "R$ " + summary?.amountDonated + ".00" + " / " + "R$ "  + 1000;
+    const activityValue =  summary?.amountDoneActivity + " Hrs" + " / " + 40 + " Hrs";
 
-    
-  const [summary, setSummary] = useState();
-    
-  useEffect(() => {
-    get('report').then((response) => {
-        setSummary(response);
-    });
-  }, []);
 
     return(
         <div className="home-sidebar-container">
@@ -25,17 +27,11 @@ function HomeUserSideBar(props) {
 
                 <div className="progress-element-donate">
                     <p>{props.titleDonate}</p>
-                    <div className="progress-container">
-                        <progress max="300" value={props.donateValue}>{props.donateValue}</progress>
-                    </div>
                     <p className="progress-label">{donateValue}</p>
                 </div>
 
                 <div className="progress-element-activity">
                     <p>{props.titleActivity}</p>
-                    <div className="progress-container">
-                        <progress max="15" value={props.activityValue}>{props.activityValue}</progress>
-                    </div>
                     <p className="progress-label">{activityValue}</p>
                 </div>
             </div>
