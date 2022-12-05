@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { get } from "../Integration/API"
 
 function HomeUserSideBar(props) {
     const donateValue = "R$ " + props.donateValue + ".00" + " / " + props.donateMax;
     const activityValue = props.activityValue + " Hrs" + " / " + props.activityMax;
+
+    
+  const [summary, setSummary] = useState();
+    
+  useEffect(() => {
+    get('report').then((response) => {
+        setSummary(response);
+    });
+  }, []);
 
     return(
         <div className="home-sidebar-container">

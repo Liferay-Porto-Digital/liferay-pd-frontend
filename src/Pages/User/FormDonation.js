@@ -37,7 +37,6 @@ function FormDonation() {
             return data;
         };
         getParam().then((response) => {
-            console.log(response)
             setMapOrganization(response);
         });
      }, [])
@@ -47,12 +46,6 @@ function FormDonation() {
      const filteredOrganizations = mapOrganization.filter((organization) => {
           return organization.name.toLowerCase().includes(organizationName.toLowerCase())
          })
-
-         const handleEvent = (e) => {
-            e.preventDefault();
-            console.log(dateOfEvent);
-            setDateOfEvent(e)
-         };
 
          function addButton() {
             const postInst = async () => {
@@ -89,11 +82,9 @@ function FormDonation() {
                 return connectAPI;
             };
             postInst().then((response) => {
-                console.log(response)
             })
         };
          
-        console.log(dateOfEvent);
 
     return(
         <div className="institute-detail-container overflow-scroll">
@@ -293,8 +284,8 @@ function FormDonation() {
                                     <tr>
                                         <td>
                                             <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1" value={dateOfEvent} onChange={e => setDateOfEvent(e.target.value)}></span>
-                                                <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"/>
+                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"  value={dateOfEvent} onCha={e => setDateOfEvent(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>

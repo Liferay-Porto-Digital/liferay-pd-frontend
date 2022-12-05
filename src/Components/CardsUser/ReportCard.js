@@ -1,4 +1,4 @@
-import React, { createElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { get } from "../Integration/API"
 
 function ReportCard() {
