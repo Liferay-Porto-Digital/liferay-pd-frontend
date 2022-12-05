@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { get } from "../Integration/API"
 
 function HomeRHSideBar(props) {
-    const donateValue = "R$ " + props.donateValue + ".00" + " / " + props.donateMax;
-    const activityValue = props.activityValue + " Hrs" + " / " + props.activityMax;
+
+    const [summary, setSummary] = useState();
+    
+    useEffect(() => {
+        get('report').then((response) => {
+            setSummary(response);
+        });
+    }, []);
+    
+    const donateValue = "R$ " + summary?.amountDonated + ".00" + " / " + "R$ "  + 1000;
+    const activityValue =  summary?.amountDoneActivity + " Hrs" + " / " + 40 + " Hrs";
+
 
     return(
         <div className="home-sidebar-container">
@@ -15,17 +26,11 @@ function HomeRHSideBar(props) {
 
                 <div className="progress-element-donate">
                     <p>{props.titleDonate}</p>
-                    <div className="progress-container">
-                        <progress max="3500" value={props.donateValue}>{props.donateValue}</progress>
-                    </div>
                     <p className="progress-label">{donateValue}</p>
                 </div>
 
                 <div className="progress-element-activity">
                     <p>{props.titleActivity}</p>
-                    <div className="progress-container">
-                        <progress max="450" value={props.activityValue}>{props.activityValue}</progress>
-                    </div>
                     <p className="progress-label">{activityValue}</p>
                 </div>
             </div>
