@@ -6,10 +6,10 @@ const sidebarRHInfo = [
         name: "Maria",
         job: "Auxiliar administrativo",
         titleEvpYear: "EVP",
-        titleDonate: "DOAÇÕES GLOBAIS",
+        titleDonate: "MINHAS DOAÇÕES",
         donateMax: "R$ 3500.00",
         donateValue: 1000,
-        titleActivity: "ATIVIDADES GLOBAIS",
+        titleActivity: "MINHAS ATIVIDADES",
         activityMax: "450 Hrs",
         activityValue: 202,
     }

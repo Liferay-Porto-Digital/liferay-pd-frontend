@@ -1,56 +1,91 @@
-import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
 import "./FormActivity.css";
 import HeaderUser from "../../Components/LayoutUser/HeaderUser";
 import titleGlobalInfo from "../../Infos/title-info-global";
-import { ModelContext } from "../../Components/ModelContext";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "./../../Components/layout/Footer";
 import TitleInfoGlobal from "../../Components/TitleGlobal/TitleInfoGlobal";
-import ButtonForm from "../../Components/ButtonForm";
 
 function FormActivity() {
-    const mdate = new Date(); 
+    const mdate = new Date();
+    const [nameContact, setNameContact] = useState();
+    const [lastNameContact, setLastNameContact] = useState();
+    const [dateOfEvent, setDateOfEvent] = useState();
+    const [valueDonation, setValueDonation] = useState();
+    const [disaster, setDisaster] = useState(false);
+    const [disease, setDisease] = useState(false);
+    const [food, setFood] = useState(false);
+    const [health, setHealth] = useState(false);
+    const [education, setEducation] = useState(false);
+    const [justice, setJustice] = useState(false);
+    const [capacitation, setCapacitation] = useState(false);
+    const [otherObjective, setOtherObjective] = useState();
+    const [otherVulnerabilities, setOtherVulnerabilities] = useState();
+    const [vulnerability, setVulnerability] = useState(false);
+    const [streetSituation, setStreetSituation] = useState(false);
     const [organizationName, setOrganizationName] = useState("")
-    const {context, setContext} = useContext(ModelContext);
-    const mapOrganization = {
-       "Imip" : {
-           url : "imip.com",
-           email: "imip@imip.com.br",
-           telefone: "123455",
-           nome_contato: "jorge",
-           sobrenome : "silva",
-           id: "1",
-           rua : "rua a",
-           cidade: "recife",
-           regiao: "pe",
-           cep: "1234"
-       }, 
-       "Solidariza Recife" : {
-        url : "solidarizarecife.com",
-        email: "solidarizarecife@solidarizarecife.com.br",
-        telefone: "999999",
-        nome_contato: "joao",
-        sobrenome : "costa",
-        id: "2",
-        rua : "rua b",
-        cidade: "recife",
-        regiao: "pe",
-        cep: "09876"
-       }
-    }
-    const handleOrganizationChange = (e) => {
-            const value = e.target.value
-            setOrganizationName (value)
-    }
-    const organizationData = mapOrganization[organizationName]
-    const organizations = Object.keys(mapOrganization)
-    const filteredOrganizations = organizations.filter((organization) => {
-         return organization.includes(organizationName)
-        })
-        
+    const [mapOrganization, setMapOrganization] = useState([])
+     const handleOrganizationChange = (e) => {
+             const value = e.target.value
+             setOrganizationName (value)
+     }
+     useEffect(() => {
+        const getParam = async () => {
+            const connectAPI = await fetch(`https://evp-api.herokuapp.com/api/v1/institution/`)
+            const data = await connectAPI.json()
+            return data;
+        };
+        getParam().then((response) => {
+            setMapOrganization(response);
+        });
+     }, [])
+     const organizationData = mapOrganization.find((organization) => {
+        return organization.name.toLowerCase() === organizationName.toLowerCase()
+     });
+     const filteredOrganizations = mapOrganization.filter((organization) => {
+          return organization.name.toLowerCase().includes(organizationName.toLowerCase())
+         })
+
+         function addButton() {
+            const postInst = async () => {
+                const connectAPI = await fetch('https://evp-api.herokuapp.com/api/v1/form/add/activity', { method: 'POST',  body: JSON.stringify({
+                    dateOfEvent: dateOfEvent,
+                    disasterObjective: disaster,
+                    educationObjective: education,
+                    healthObjective: health,
+                    healthVulnerability: disease,
+                    homelessVulnerability: streetSituation,
+                    institutionCity: organizationData.city,
+                    institutionEmail: organizationData.email,
+                    institutionName: organizationName,
+                    institutionPhoneNumber: organizationData.phoneNumber,
+                    institutionRegistrationNumber: organizationData.registrationNumber,
+                    institutionState: organizationData.state,
+                    institutionStreet: organizationData.street,
+                    institutionUrl: organizationData.url,
+                    institutionZipCode: organizationData.zipCode,
+                    justiceObjective: justice,
+                    lastNameContact: lastNameContact,
+                    monetaryVulnerability: vulnerability,
+                    nameContact: nameContact,
+                    otherObjective: otherObjective,
+                    otherVulnerability: otherVulnerabilities,
+                    professionalObjective: capacitation,
+                    suppliesObjective: food,
+                    value: valueDonation
+                }),
+                    headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                  }})
+
+                return connectAPI;
+            };
+            postInst().then((response) => {
+            })
+            alert("Formulário Criado!")
+        };
+         
 
     return(
         <div className="institute-detail-container overflow-scroll">
@@ -76,7 +111,7 @@ function FormActivity() {
                             )}
                         </div>
                         <div className="institute-detail-card-container">
-                            <table className="table">
+                        <table className="table">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -112,7 +147,7 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="tel" className="form-control" placeholder="Telefone"  aria-label="Telefone" aria-describedby="basic-addon1"value={organizationData?.telefone}/>
+                                                <input type="tel" className="form-control" placeholder="Telefone"  aria-label="Telefone" aria-describedby="basic-addon1"value={organizationData?.phoneNumber}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -120,26 +155,26 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={organizationData?.nome_contato}/>
+                                                <input type="text" className="form-control" placeholder="Nome do Contato"  aria-label="Contact Name" aria-describedby="basic-addon1"value={nameContact} onChange={ e => setNameContact(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={organizationData?.sobrenome}/>
+                                                <input type="url" className="form-control" placeholder="Sobrenome do Contato"  aria-label="lastname" aria-describedby="basic-addon1"value={lastNameContact} onChange={e => setLastNameContact(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.id}/>
+                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.registrationNumber}/>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Rua"  aria-label="Street" aria-describedby="basic-addon1"value={organizationData?.rua}/>
+                                                <input type="text" className="form-control" placeholder="Rua"  aria-label="Street" aria-describedby="basic-addon1"value={organizationData?.street}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -147,42 +182,29 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Cidade"  aria-label="City" aria-describedby="basic-addon1"value={organizationData?.cidade}/>
+                                                <input type="text" className="form-control" placeholder="Cidade"  aria-label="City" aria-describedby="basic-addon1"value={organizationData?.city}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Região"  aria-label="Region" aria-describedby="basic-addon1"value={organizationData?.regiao}/>
+                                                <input type="text" className="form-control" placeholder="Região"  aria-label="Estado" aria-describedby="basic-addon1"value={organizationData?.state}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.cep}/>
+                                                <input type="text" className="form-control" placeholder="CEP"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.zipCode}/>
                                             </div>
                                         </td>
                                         <td>
-                                            <select className="form-select" aria-label="Default select example">
-                                                <option value="valor1" selected>Brasil</option>
-                                                <option value="valor2">Canadá</option>
-                                                <option value="valor3">Chile</option>
-                                                <option value="valor4">Estados Unidos</option>
-                                                <option value="valor5">Bolívia</option>
-                                                <option value="valor6">Portugal</option>
-                                                <option value="valor7">Japão</option>
-                                                <option value="valor8">Noruega</option>
-                                                <option value="valor9">Suiça</option>
-                                            </select>
+                                            <div className="input-group mb-3">
+                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <input type="text" className="form-control" placeholder="Quantidade de Horas"  aria-label="DonationValue" aria-describedby="basic-addon1" value={valueDonation} onChange={ e => setValueDonation(e.target.value)}/>
+                                            </div>
                                         </td>
                                         </tr>
                                         <tr>
-                                        <td>
-                                            <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Horas de Voluntariado"  aria-label="VolunteerHours" aria-describedby="basic-addon1"/>
-                                            </div>
-                                        </td>
                                     </tr>
                                     <tr>
                                         <td><p><b>Você pode escolher um ou mais objetivos:</b></p></td>
@@ -190,25 +212,25 @@ function FormActivity() {
                                     <tr>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={disaster} onChange={e => setDisaster(!disaster)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Auxílio em Desastres</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={food} onChange={e => setFood(!food)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Fornecer comida / água / abrigo</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={health} onChange={e => setHealth(!health)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Saúde</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value= "" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={education} onChange={e => setEducation(!education)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Educação</label>
                                             </div>                                            
                                         </td>
@@ -216,26 +238,20 @@ function FormActivity() {
                                     <tr>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={justice} onChange={e => setJustice(!justice)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Liberdade / Justiça</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={capacitation} onChange={e => setCapacitation(!capacitation)}/>
                                                 <label className="form-check-label" for="flexCheckDefault">Capacitação Profissional</label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                                <label className="form-check-label" for="flexCheckDefault"> Outros</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Para outros objetivos"  aria-label="Others" aria-describedby="basic-addon1"/>
+                                                <input type="text" className="form-control" placeholder="Para outros objetivos"  aria-label="Others" aria-describedby="basic-addon1" value={otherObjective} onChange={e => setOtherObjective(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -243,26 +259,26 @@ function FormActivity() {
                                     <tr>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={vulnerability} onChange={e => setVulnerability(!vulnerability)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Vulnerabilidade socioeconômica local / Global</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" name= "accept"value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={disease} onChange={e => setDisease(!disease)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Doença / Transtorno mental</label>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                                <input className="form-check-input" type="checkbox" id="flexCheckDefault" value={streetSituation} onChange={e => setStreetSituation(!streetSituation)}/>
                                                 <label className="form-check-label" for="flexCheckDefault"> Situação de rua</label>
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                                <label className="form-check-label" for="flexCheckDefault"> Outros</label>
+                                            <div className="input-group mb-3">
+                                                <span className="input-group-text" id="basic-addon1"></span>
+                                                <input type="text" className="form-control" placeholder="Para outro tipo vulnerabilidade"  aria-label="Others" aria-describedby="basic-addon1" value={otherVulnerabilities} onChange={e => setOtherVulnerabilities(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -270,25 +286,19 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Para outro tipo vulnerabilidade"  aria-label="Others" aria-describedby="basic-addon1"/>
+                                                <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"  value={dateOfEvent} onChange={e => setDateOfEvent(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="input-group mb-3">
+                                        <div  className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="date" className="form-control"  aria-label="Date" aria-describedby="basic-addon1"/>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button type="submit" className="btn btn-primary btn-confirmar-form-activity" onClick={()=>ButtonForm()}>Confirmar</button>
+                                                <textarea className="form-control" aria-label="Organization Description" placeholder="Descrição da Organização" value={organizationData?.description}></textarea>
+                                            </div>                                           
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div className="input-group mb-3">
-                                                <span className="input-group-text" id="basic-addon1"></span>
-                                                <textarea className="form-control" aria-label="Organization Description" placeholder="Descrição da Organização"></textarea>
-                                            </div>
+                                            <button type="submit" className="btn btn-primary btn-confirmar-form-donation" onClick={addButton}>Confirmar</button>
                                         </td>
                                     </tr>
                                 </tbody>
