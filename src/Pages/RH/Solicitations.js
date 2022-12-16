@@ -8,15 +8,18 @@ import sidebarInfo from "../../Infos/sidebarRH-info";
 import SidebarHomeRH from "../../Components/SideBars/HomeRHSideBar";
 import Footer from "../../Components/layout/Footer";
 import { get } from "../../Components/Integration/API";
+import PacmanLoader from 'react-spinners/PacmanLoader';
 
 function Solicitations() {
     const mdate = new Date();
     const [input, setInput] = useState();
     const [dropdown, setDropdown] = useState(1);
     const [integrate, setIntegrate] = useState();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         editDropdown();
+        setLoading(false);
     }, [dropdown]);
 
     function searchBtn() {
@@ -28,6 +31,7 @@ function Solicitations() {
         getParam(input).then((response) => {
             console.log(response)
             setIntegrate(response);
+            setLoading(false);
         })
     }
 
@@ -90,7 +94,22 @@ function Solicitations() {
                                 </form>
                             </div>
                         <div className="feed-home-container">
-                            {integrate?.map((info) =>
+                            {
+                            
+                            loading ?
+
+                            <PacmanLoader
+                            color="#36d7b7"
+                            cssOverride={{
+                            marginLeft: 100
+                            }}
+                            />
+                            
+                            :
+                                                        
+                            
+
+                            integrate?.map((info) =>
                                 <HomeRHFeedCard
                                     username={info.collaborator.name}
                                     userjob={info.collaborator.jobRole}

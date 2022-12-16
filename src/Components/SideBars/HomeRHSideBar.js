@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { get } from "../Integration/API"
+import PacmanLoader from "react-spinners/BarLoader";
 
 function HomeRHSideBar(props) {
 
     const [summary, setSummary] = useState();
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         get('report').then((response) => {
             setSummary(response);
+            setLoading(false);
         });
     }, []);
     
@@ -17,7 +20,7 @@ function HomeRHSideBar(props) {
 
     return(
         <div className="home-sidebar-container">
-            <div className="home-sidebar">
+                 <div className="home-sidebar">
                 <img src={props.avatar} alt="avatar" className="user-avatar-side-home"/><br/>
                 <span className="username-sidebar-home">{props.name}</span><br/>
                 <span className="user-job-sidebar-home">{props.job}</span>
@@ -25,16 +28,43 @@ function HomeRHSideBar(props) {
                 <h4 id="title-evp-year">{props.titleEvpYear}</h4>
 
                 <div className="progress-element-donate">
-                    <p>{props.titleDonate}</p>
-                    <p className="progress-label">{donateValue}</p>
+                    <p>{props.titleDonate}</p>     
+                    {
+                        loading ?
+
+                        <PacmanLoader
+                        color="#36d7b7"
+                        cssOverride={{
+                          marginLeft: 100
+                        }}
+                        />
+                        
+                        :
+
+                        <p className="progress-label">{donateValue}</p>
+                    }
                 </div>
 
                 <div className="progress-element-activity">
                     <p>{props.titleActivity}</p>
-                    <p className="progress-label">{activityValue}</p>
+                    {
+                        loading ?
+
+                        <PacmanLoader
+                        color="#36d7b7"
+                        cssOverride={{
+                          marginLeft: 100
+                        }}
+                        />
+                        
+                        :
+
+                        <p className="progress-label">{activityValue}</p>
+                    }
+                    
                 </div>
             </div>
-        </div>
+        </div>    
     );
 }
 

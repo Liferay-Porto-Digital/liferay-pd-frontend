@@ -9,14 +9,17 @@ import RegisterActivityCard from "../../Components/CardsUser/RegisterActivityCar
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "../../Components/layout/Footer";
+import PacmanLoader from 'react-spinners/PacmanLoader'
 
 function RegisterActivity() {
     const mdate = new Date();
     const [summary, setSummary] = useState();
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
       get('form').then((response) => {
           setSummary(response);
+          setLoading(false);
       });
     }, []);
   
@@ -44,7 +47,20 @@ function RegisterActivity() {
                             )}
                         </div>
                         <div className="feed-activity-container">
-                            {summary?.map((info) =>
+                            {
+                            
+                            loading ?
+
+                            <PacmanLoader
+                            color="#36d7b7"
+                            cssOverride={{
+                            marginLeft: 100
+                            }}
+                            />
+                            
+                            :
+                            
+                            summary?.map((info) =>
                                 <RegisterActivityCard
                                     id={info.id}
                                     name={info.institution.name}
@@ -55,7 +71,9 @@ function RegisterActivity() {
                                     activityDate={"Ação feita em " + info.dateOfEvent}
                                     activityState={info.activityState}
                                 />
-                            )}
+                            )
+                            }
+                            
                         </div>
                     </div>
                     <div className="col-md-2 sidebar-right-register-activity">
