@@ -18,8 +18,8 @@ function Solicitations() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        editDropdown();
         setLoading(false);
+        editDropdown();
     }, [dropdown]);
 
     function searchBtn() {
@@ -31,7 +31,6 @@ function Solicitations() {
         getParam(input).then((response) => {
             console.log(response)
             setIntegrate(response);
-            setLoading(false);
         })
     }
 
@@ -107,8 +106,6 @@ function Solicitations() {
                             
                             :
                                                         
-                            
-
                             integrate?.map((info) =>
                                 <HomeRHFeedCard
                                     username={info.collaborator.name}
