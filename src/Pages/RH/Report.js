@@ -8,8 +8,12 @@ import sidebarInfo from "../../Infos/sidebarRH-info";
 import SidebarHomeRH from "../../Components/SideBars/HomeRHSideBar";
 import Footer from "../../Components/layout/Footer";
 
+
 function Report() {
     var mdate = new Date();
+
+
+
     return(
         <div className="home-user-container overflow-scroll">
             <HeaderRH/>
