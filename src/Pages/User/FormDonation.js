@@ -26,6 +26,16 @@ function FormActivity() {
     const [streetSituation, setStreetSituation] = useState(false);
     const [organizationName, setOrganizationName] = useState("")
     const [mapOrganization, setMapOrganization] = useState([])
+    const [url, setUrl] = useState();
+    const [email, setEmail] = useState();
+    const [phoneNumber, setPhoneNumber] = useState();
+    const [registrationNumber, setRegistrationNumber] = useState();
+    const [estado, setEstado] = useState();
+    const [street, setStreet] = useState();
+    const [zipCode, setZipCode] = useState();
+    const [city, setCity] = useState();
+
+
      const handleOrganizationChange = (e) => {
              const value = e.target.value
              setOrganizationName (value)
@@ -56,15 +66,15 @@ function FormActivity() {
                     healthObjective: health,
                     healthVulnerability: disease,
                     homelessVulnerability: streetSituation,
-                    institutionCity: organizationData.city,
-                    institutionEmail: organizationData.email,
+                    institutionCity: organizationData?.city || city,
+                    institutionEmail: organizationData?.email || email,
                     institutionName: organizationName,
-                    institutionPhoneNumber: organizationData.phoneNumber,
-                    institutionRegistrationNumber: organizationData.registrationNumber,
-                    institutionState: organizationData.state,
-                    institutionStreet: organizationData.street,
-                    institutionUrl: organizationData.url,
-                    institutionZipCode: organizationData.zipCode,
+                    institutionPhoneNumber: organizationData?.phoneNumber || phoneNumber,
+                    institutionRegistrationNumber: organizationData?.registrationNumber || registrationNumber,
+                    institutionState: organizationData?.state || estado,
+                    institutionStreet: organizationData?.street || street,
+                    institutionUrl: organizationData?.url || url,
+                    institutionZipCode: organizationData?.zipCode || zipCode,
                     justiceObjective: justice,
                     lastNameContact: lastNameContact,
                     monetaryVulnerability: vulnerability,
@@ -82,8 +92,14 @@ function FormActivity() {
                 return connectAPI;
             };
             postInst().then((response) => {
+                console.log(response);
+                if (response.status === 201) {
+                    alert("Formulário Cadastrado!")
+                    }
+                    else {
+                        alert("Formulário Não Cadastrado, Erro com algum campo!")
+                    }
             })
-            alert("Formulário Criado!")
         };
          
 
@@ -126,7 +142,7 @@ function FormActivity() {
                                                 <input type="text" className="form-control" list="datalistOptions" placeholder="Nome da Organização" onChange={handleOrganizationChange}  aria-label="NameOrg" aria-describedby="basic-addon1" value={organizationName}/>
                                                 <datalist id="datalistOptions">
                                                     {filteredOrganizations.map((organization) => (
-                                                        <option value={organization}/>                                                        
+                                                        <option value={organization.name}/>                                                        
                                                     ))}
                                                 </datalist>
                                             </div>
@@ -135,19 +151,19 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Url"  aria-label="url" aria-describedby="basic-addon1" value={organizationData?.url}/>
+                                                <input type="text" className="form-control" placeholder="Url"  aria-label="url" aria-describedby="basic-addon1" value={(url==="")? url : organizationData?.url } onChange={e => setUrl(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="email" className="form-control" placeholder="Email"  aria-label="Email" aria-describedby="basic-addon1"value={organizationData?.email}/>
+                                                <input type="email" className="form-control" placeholder="Email"  aria-label="Email" aria-describedby="basic-addon1"value={(email ==="")? email : organizationData?.email } onChange={e => setEmail(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="tel" className="form-control" placeholder="Telefone"  aria-label="Telefone" aria-describedby="basic-addon1"value={organizationData?.phoneNumber}/>
+                                                <input type="tel" className="form-control" placeholder="Telefone"  aria-label="Telefone" aria-describedby="basic-addon1"value={(phoneNumber === "") ?  phoneNumber : organizationData?.phoneNumber} onChange={e => setPhoneNumber(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -167,14 +183,14 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={organizationData?.registrationNumber}/>
+                                                <input type="text" className="form-control" placeholder="CNPJ"  aria-label="FiscalNumberId" aria-describedby="basic-addon1"value={(registrationNumber === "") ? registrationNumber : organizationData?.registrationNumber} onChange={ e => setRegistrationNumber(e.target.value)}/>
                                             </div>
                                         </td>
 
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Rua"  aria-label="Street" aria-describedby="basic-addon1"value={organizationData?.street}/>
+                                                <input type="text" className="form-control" placeholder="Rua"  aria-label="Street" aria-describedby="basic-addon1"value={(street === "") ? street : organizationData?.street} onChange={e => setStreet(e.target.value)}/>
                                             </div>
                                         </td>
                                     </tr>
@@ -182,19 +198,19 @@ function FormActivity() {
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Cidade"  aria-label="City" aria-describedby="basic-addon1"value={organizationData?.city}/>
+                                                <input type="text" className="form-control" placeholder="Cidade"  aria-label="City" aria-describedby="basic-addon1"value={(city === "") ? city : organizationData?.city} onChange= {e => setCity(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="Estado (ex: PE, RJ...)"  aria-label="Estado" aria-describedby="basic-addon1"value={organizationData?.state}/>
+                                                <input type="text" className="form-control" placeholder="Estado (ex: PE, RJ...)"  aria-label="Estado" aria-describedby="basic-addon1"value={(estado === "") ? estado : organizationData?.state} onChange= {e => setEstado(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>
                                             <div className="input-group mb-3">
                                                 <span className="input-group-text" id="basic-addon1"></span>
-                                                <input type="text" className="form-control" placeholder="CEP (min: 8 dígitos)"  aria-label="PostalCode" aria-describedby="basic-addon1"value={organizationData?.zipCode}/>
+                                                <input type="text" className="form-control" placeholder="CEP (min: 8 dígitos)"  aria-label="PostalCode" aria-describedby="basic-addon1"value={(zipCode === "") ? zipCode : organizationData?.zipCode} onChange= {e => setZipCode(e.target.value)}/>
                                             </div>
                                         </td>
                                         <td>

@@ -19,8 +19,13 @@
 
 .button-new-register-activity {
     border-radius: 36px !important;
+    background-color: #00bfa5;
+    border: none;
 }
 
+.button-new-register-activity:hover {
+background-color: #017b6b !important;
+}
 
 .signal-state-reg-activity-con {
     width: 24px;

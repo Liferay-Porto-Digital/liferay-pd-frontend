@@ -44,8 +44,13 @@ function AddInstitution() {
             return connectAPI;
         };
         postInst().then((response) => {
+            if (response.status === 201) {
+                alert("Instituição Cadastrada!")
+                }
+                else {
+                    alert("Instituição Não Cadastrada, Erro Em Algum Campo!")
+                }
         })
-        alert("Instituição Criada!")
     };
     
 

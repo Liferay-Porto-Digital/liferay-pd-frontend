@@ -9,15 +9,18 @@ import InstitutionCard from "../../Components/CardsUser/InstitutionCard";
 import sidebarInfo from "../../Infos/sidebar-info";
 import SidebarHomeUser from "../../Components/SideBars/HomeUserSideBar";
 import Footer from "../../Components/layout/Footer";
+import PacmanLoader from 'react-spinners/PacmanLoader';
 
 function Institution() {
     const mdate = new Date();
     const [input, setInput] = useState();    
     const [dropdown, setDropdown] = useState(1);
     const [integrate, setIntegrate] = useState();
+    const [loading, setLoading] = useState(true);
     
     useEffect(() => {
         editDropdown();
+        setLoading(false);
     }, [dropdown]);
 
     function searchBtn() {
@@ -29,6 +32,7 @@ function Institution() {
         getParam(input).then((response) => {
             console.log(response)
             setIntegrate([response]);
+            setLoading(false);
         })
     }
 
@@ -86,7 +90,21 @@ function Institution() {
                             </form>
                         </div>
                         <div className="institution-card-container">
-                            {integrate?.map((info) =>
+                            {
+                            
+                            loading ?
+
+                            <PacmanLoader
+                            color="#36d7b7"
+                            cssOverride={{
+                            marginLeft: 100
+                            }}
+                            />
+                            
+                            :
+                                                        
+                            
+                            integrate?.map((info) =>
                                 <InstitutionCard
                                     name={info.name}
                                     phone={"Telefone: " + info.phoneNumber}
